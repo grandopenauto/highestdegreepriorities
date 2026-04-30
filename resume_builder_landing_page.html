@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Resume Builder | Lifetime Access</title>
+  <meta name="description" content="Build a sharper, more professional resume with AI support. Get lifetime access to the AI Resume Builder for a one-time $20 payment." />
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg2: #0e1b2f;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.12);
+      --text: #f7fbff;
+      --muted: #b8c4d6;
+      --accent: #69e3c2;
+      --accent2: #9ab7ff;
+      --line: rgba(255,255,255,.16);
+      --shadow: 0 30px 90px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(105,227,194,.22), transparent 32%),
+        radial-gradient(circle at 80% 0%, rgba(154,183,255,.2), transparent 34%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8,17,31,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; }
+    .mark { width: 34px; height: 34px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 12px 30px rgba(105,227,194,.18); }
+    .navlinks { display: flex; gap: 18px; align-items: center; font-size: 14px; color: var(--muted); }
+    .navlinks a { text-decoration: none; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 14px 22px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #07101d; box-shadow: 0 18px 44px rgba(105,227,194,.18); }
+    .btn-secondary { border-color: var(--line); background: rgba(255,255,255,.07); color: var(--text); }
+    .hero { padding: 92px 0 66px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: center; }
+    .eyebrow { color: var(--accent); font-weight: 900; letter-spacing: .16em; text-transform: uppercase; font-size: 12px; margin-bottom: 16px; }
+    h1 { font-size: clamp(44px, 7vw, 82px); line-height: .94; letter-spacing: -.07em; margin: 0 0 22px; }
+    .lead { font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: var(--muted); margin: 0 0 30px; max-width: 700px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .price-note { color: var(--muted); font-size: 14px; }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card:before { content:""; position:absolute; inset:-80px -80px auto auto; width: 220px; height:220px; background: rgba(105,227,194,.18); filter: blur(6px); border-radius: 50%; }
+    .resume-preview { position: relative; background: #f8fbff; color: #122033; border-radius: 22px; padding: 26px; box-shadow: 0 22px 55px rgba(0,0,0,.25); }
+    .resume-preview h3 { margin: 0; font-size: 24px; letter-spacing: -.04em; }
+    .resume-preview .role { color: #49647e; margin: 4px 0 18px; font-weight: 700; }
+    .line { height: 10px; background: #dbe5f0; border-radius: 99px; margin: 10px 0; }
+    .line.short { width: 62%; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:8px; margin: 18px 0; }
+    .mini-tag { color:#0b3b32; background:#c9f8ec; padding:7px 10px; border-radius:999px; font-size:12px; font-weight:800; }
+    .score { margin-top: 18px; border-radius: 18px; padding: 16px; background: #edf4ff; border: 1px solid #d4e3f7; }
+    .score strong { display:block; color:#122033; margin-bottom:8px; }
+    .meter { height: 9px; background:#d7e0ec; border-radius:999px; overflow:hidden; }
+    .meter span { display:block; width:84%; height:100%; background: linear-gradient(90deg, #69e3c2, #5f8fff); }
+    section { padding: 72px 0; }
+    .section-head { max-width: 760px; margin-bottom: 30px; }
+    h2 { font-size: clamp(32px, 4.5vw, 58px); line-height: 1; letter-spacing: -.055em; margin: 0 0 16px; }
+    .section-head p, .muted { color: var(--muted); line-height: 1.65; font-size: 18px; }
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: var(--card); border:1px solid var(--line); border-radius: 28px; padding: 24px; }
+    .card h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -.03em; }
+    .card p { margin:0; color: var(--muted); line-height:1.6; }
+    .steps { display:grid; grid-template-columns: repeat(4,1fr); gap: 16px; counter-reset: step; }
+    .step { background: var(--card); border:1px solid var(--line); border-radius: 26px; padding: 22px; counter-increment: step; }
+    .step:before { content: counter(step); display:inline-flex; width:34px; height:34px; align-items:center; justify-content:center; border-radius:12px; color:#07101d; background: var(--accent); font-weight:900; margin-bottom: 18px; }
+    .step h3 { margin:0 0 8px; font-size: 20px; }
+    .step p { margin:0; color:var(--muted); line-height:1.55; }
+    .offer { background: linear-gradient(135deg, rgba(105,227,194,.15), rgba(154,183,255,.14)); border: 1px solid var(--line); border-radius: 34px; padding: 34px; display:grid; grid-template-columns: 1fr auto; gap: 24px; align-items:center; box-shadow: var(--shadow); }
+    .price { font-size: 58px; font-weight: 950; letter-spacing: -.06em; margin: 0; }
+    .small { color: var(--muted); font-size: 14px; line-height: 1.5; }
+    footer { padding: 32px 0 46px; border-top: 1px solid var(--line); color: var(--muted); }
+    @media (max-width: 880px) {
+      .hero-grid, .offer { grid-template-columns: 1fr; }
+      .grid-3, .steps { grid-template-columns: 1fr; }
+      .navlinks { display:none; }
+      .hero { padding-top: 60px; }
+      .offer { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="mark"></div><span>AI Resume Builder</span></div>
+      <nav class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#buy">Lifetime access</a>
+      </nav>
+      <a class="btn btn-primary" href="https://buy.stripe.com/00w3cweiGbZ44fi0Hgcs801">Get lifetime access</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">One-time $20 access</div>
+          <h1>Build a resume that actually knows what to say.</h1>
+          <p class="lead">Stop staring at a blank page. Use AI-guided prompts to create, improve, and tailor a professional resume for the role you want next.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://buy.stripe.com/00w3cweiGbZ44fi0Hgcs801">Get lifetime access for $20</a>
+            <a class="btn btn-secondary" href="#features">See what it does</a>
+            <div class="price-note">Secure checkout powered by Stripe.</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="resume-preview">
+            <h3>Your Name</h3>
+            <div class="role">Customer Success · Operations · Sales Support</div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+            <div class="tag-row">
+              <span class="mini-tag">Clear summary</span>
+              <span class="mini-tag">Stronger bullets</span>
+              <span class="mini-tag">Role targeted</span>
+            </div>
+            <div class="line"></div>
+            <div class="line short"></div>
+            <div class="score">
+              <strong>AI improvement pass</strong>
+              <div class="meter"><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What it helps with</div>
+          <h2>Turn scattered experience into a sharper career story.</h2>
+          <p>The builder helps users move from unclear, generic resume language into stronger positioning, cleaner structure, and more specific bullet points.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><h3>Resume summary help</h3><p>Create a stronger professional summary that explains who you are, what you do, and where you bring value.</p></div>
+          <div class="card"><h3>Better bullet points</h3><p>Rewrite weak responsibilities into clearer achievement-focused statements that sound more confident and useful.</p></div>
+          <div class="card"><h3>Role targeting</h3><p>Adjust your resume language toward the job, industry, or opportunity you are trying to win.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" style="background:rgba(255,255,255,.035); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">How it works</div>
+          <h2>Simple enough to start today.</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>Enter your background</h3><p>Add your work history, skills, goals, and the kind of role you want.</p></div>
+          <div class="step"><h3>Generate resume content</h3><p>Use AI support to draft summaries, bullet points, and stronger experience sections.</p></div>
+          <div class="step"><h3>Refine your positioning</h3><p>Improve clarity, confidence, wording, and relevance for the opportunity you are pursuing.</p></div>
+          <div class="step"><h3>Use it again anytime</h3><p>Lifetime access means you can update and tailor your resume as your goals change.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="buy">
+      <div class="wrap">
+        <div class="offer">
+          <div>
+            <div class="eyebrow">Lifetime access</div>
+            <h2>Pay once. Keep improving your resume.</h2>
+            <p class="muted">Get lifetime access to the AI Resume Builder for one simple one-time payment. Use it to draft, polish, and tailor your resume whenever you need to make your next move.</p>
+          </div>
+          <div>
+            <p class="price">$20</p>
+            <a class="btn btn-primary" href="https://buy.stripe.com/00w3cweiGbZ44fi0Hgcs801">Buy lifetime access</a>
+            <p class="small">One-time payment. Hosted Stripe checkout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap small">© AI Resume Builder. Built for people who need a clearer, stronger resume without overthinking every word.</div>
+  </footer>
+</body>
+</html>
