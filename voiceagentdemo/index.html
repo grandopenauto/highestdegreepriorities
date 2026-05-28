@@ -182,9 +182,27 @@
     .eyebrow span { color: #fff; text-shadow: none; }
     h1 {
       margin: 12px 0 8px;
-      font-size: clamp(4rem, 9.4vw, 8.5rem);
-      line-height: .84;
-      letter-spacing: -.08em;
+      font-size: clamp(3.5rem, 8.4vw, 7.6rem);
+      line-height: .86;
+      letter-spacing: -.04em;
+    }
+    .hero-title {
+      max-width: 720px;
+    }
+    .voice-agent-mark {
+      display: flex;
+      align-items: baseline;
+      gap: clamp(.08em, .8vw, .14em);
+      white-space: nowrap;
+    }
+    .voice-agent-mark .grad-pink,
+    .voice-agent-mark .grad-blue {
+      display: inline-block;
+      letter-spacing: -.055em;
+    }
+    .demo-word {
+      display: block;
+      letter-spacing: -.035em;
     }
     .grad-pink {
       background: linear-gradient(180deg, #fff, var(--pink) 35%, #b00070 100%);
@@ -473,6 +491,8 @@
       .cta-band { grid-template-columns: 1fr; text-align: center; }
     }
     @media (max-width: 560px) {
+      h1 { font-size: clamp(3rem, 16vw, 4.25rem); }
+      .voice-agent-mark { gap: .08em; }
       .wrap { width: min(100% - 24px, var(--max)); }
       .nav { padding: 12px; }
       .brand { min-width: auto; }
@@ -508,7 +528,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="btn pink" data-open-demo>Book a Demo</button>
+      <a class="btn pink" href="email-agent.html?source=voiceagent-demo&intent=book-demo" data-email-agent>Book a Demo</a>
     </div>
   </header>
 
@@ -516,12 +536,12 @@
     <section class="hero">
       <div>
         <div class="eyebrow">24/7 <span>AI Receptionists & Sales Agents</span></div>
-        <h1><span class="grad-pink">VoiceAgent</span><span class="grad-blue">Demo</span></h1>
+        <h1 class="hero-title"><span class="voice-agent-mark"><span class="grad-pink">Voice</span><span class="grad-blue">Agent</span></span><span class="grad-blue demo-word">Demo</span></h1>
         <div class="subhead">You’re Not Just Another Number</div>
         <div class="script">You Are Our Highest Degree Priority</div>
         <p class="copy">AI that talks, qualifies, follows up, books appointments, and helps businesses convert more leads around the clock.</p>
         <div class="hero-actions">
-          <button class="btn pink big" data-open-demo>Start Demo <span>→</span></button>
+          <a class="btn pink big" href="email-agent.html?source=voiceagent-demo&intent=start-demo" data-email-agent>Start Demo <span>→</span></a>
           <a class="btn blue big" href="#demo">See AI in Action</a>
         </div>
         <div class="trust">◇ Trusted by businesses that want to scale.</div>
@@ -590,7 +610,7 @@
       <div class="cta-band">
         <div class="target">◉</div>
         <h2>WE HANDLE THE CALLS.<br><span>YOU CLOSE THE DEALS.</span></h2>
-        <button class="btn pink big" data-open-demo>Launch Your Demo →</button>
+        <a class="btn pink big" href="email-agent.html?source=voiceagent-demo&intent=launch-demo" data-email-agent>Launch Your Demo →</a>
       </div>
     </section>
   </main>
@@ -606,7 +626,7 @@
   <div class="modal" id="demoModal" aria-hidden="true">
     <div class="modal-box">
       <button class="close" id="closeModal" aria-label="Close demo form">×</button>
-      <div class="eyebrow">Launch Your LeadGen Demo</div>
+      <div class="eyebrow">Launch Your VoiceAgent Demo</div>
       <h2 style="font-size:2.4rem;margin:10px 0 0;">Let’s Build Your AI Call Flow</h2>
       <p class="copy">Tell us where your leads should go and what your AI should collect. This page is designed for prospects who have already entered the demo flow.</p>
       <form id="demoForm">
@@ -625,7 +645,7 @@
         </div>
         <textarea name="notes" placeholder="What should your AI agent do first?"></textarea>
         <button class="btn pink big" type="submit">Submit Demo Request →</button>
-        <div class="success" id="successMsg">Demo request captured. Your AI workflow is ready for the next step.</div>
+        <div class="success" id="successMsg">Demo request captured. Sending you to the email agent now.</div>
       </form>
     </div>
   </div>
@@ -640,22 +660,40 @@
     }
 
     const modal = document.getElementById('demoModal');
-    const openButtons = document.querySelectorAll('[data-open-demo]');
+    const emailAgentLinks = document.querySelectorAll('[data-email-agent]');
     const closeButton = document.getElementById('closeModal');
     const form = document.getElementById('demoForm');
     const success = document.getElementById('successMsg');
 
-    function openModal() {
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      setTimeout(() => modal.querySelector('input').focus(), 80);
+    // Change this in one place if your email-agent page lives at another URL.
+    const EMAIL_AGENT_URL = 'email-agent.html';
+
+    function buildEmailAgentUrl(params = {}) {
+      const url = new URL(EMAIL_AGENT_URL, window.location.href);
+      const defaults = {
+        source: 'voiceagent-demo',
+        campaign: 'hdp-voiceagent',
+        intent: 'book-demo'
+      };
+      Object.entries({ ...defaults, ...params }).forEach(([key, value]) => {
+        if (value) url.searchParams.set(key, value);
+      });
+      return url.toString();
     }
+
     function closeModal() {
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
     }
 
-    openButtons.forEach(btn => btn.addEventListener('click', openModal));
+    emailAgentLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const clickedUrl = new URL(link.getAttribute('href'), window.location.href);
+        window.location.href = buildEmailAgentUrl(Object.fromEntries(clickedUrl.searchParams.entries()));
+      });
+    });
+
     closeButton.addEventListener('click', closeModal);
     modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
@@ -663,9 +701,18 @@
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const data = Object.fromEntries(new FormData(form).entries());
-      localStorage.setItem('hdpLeadGenDemoRequest', JSON.stringify({ ...data, created_at: new Date().toISOString() }));
+      const payload = { ...data, created_at: new Date().toISOString(), source: 'voiceagent-demo' };
+      localStorage.setItem('hdpVoiceAgentDemoRequest', JSON.stringify(payload));
       success.classList.add('show');
-      form.querySelector('button[type="submit"]').textContent = 'Demo Request Saved ✓';
+      form.querySelector('button[type="submit"]').textContent = 'Sending to Email Agent ✓';
+      window.location.href = buildEmailAgentUrl({
+        intent: 'demo-form-submit',
+        name: data.name,
+        business: data.business,
+        email: data.email,
+        goal: data.goal,
+        notes: data.notes
+      });
     });
 
     const demoPlayer = document.getElementById('demoPlayer');
