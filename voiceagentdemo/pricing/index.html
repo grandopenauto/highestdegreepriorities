@@ -1,1 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Receptionist | Pricing</title>
+  <style>
+    :root {
+      --bg: #090814;
+      --bg-2: #120f25;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --text: #f7f2ff;
+      --muted: #bfb4d7;
+      --gold: #f4c76b;
+      --gold-2: #ffdf92;
+      --pink: #ff4fd8;
+      --purple: #8b5cf6;
+      --cyan: #61dafb;
+      --success: #74f0a7;
+      --danger: #ff7b9c;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
+      --radius: 26px;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.35), transparent 30%),
+        radial-gradient(circle at 90% 12%, rgba(255, 79, 216, 0.22), transparent 28%),
+        radial-gradient(circle at 50% 95%, rgba(244, 199, 107, 0.16), transparent 35%),
+        linear-gradient(145deg, var(--bg), var(--bg-2) 62%, #06050d);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black, transparent 75%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0 42px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--gold), var(--pink));
+      color: #17101f;
+      box-shadow: 0 16px 40px rgba(244, 199, 107, 0.25);
+      font-weight: 900;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      backdrop-filter: blur(16px);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 20px var(--success);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .price-card,
+    .usage-card,
+    .fineprint,
+    .faq-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.045));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 54px);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,199,107,0.30), transparent 70%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      margin-bottom: 20px;
+      border-radius: 999px;
+      color: var(--gold-2);
+      background: rgba(244, 199, 107, 0.12);
+      border: 1px solid rgba(244, 199, 107, 0.22);
+      font-weight: 700;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(2.65rem, 7vw, 5.65rem);
+      line-height: 0.88;
+      letter-spacing: -0.08em;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff, var(--gold-2) 36%, var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 13px 18px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #19111e;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      box-shadow: 0 18px 42px rgba(244, 199, 107, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .summary-panel {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .total-box {
+      border: 1px solid rgba(244, 199, 107, 0.22);
+      border-radius: 24px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top right, rgba(244,199,107,0.22), transparent 40%),
+        rgba(255, 255, 255, 0.06);
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .big-price {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .big-price strong {
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+    }
+
+    .big-price span {
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .setup-badge {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255, 79, 216, 0.12);
+      color: #ffd9f7;
+      border: 1px solid rgba(255, 79, 216, 0.22);
+      font-weight: 700;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .mini-list div {
+      display: flex;
+      gap: 11px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .check {
+      color: var(--success);
+      font-weight: 900;
+    }
+
+    .section {
+      padding-top: 34px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-title p {
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border-color: rgba(244, 199, 107, 0.4);
+      background:
+        radial-gradient(circle at top right, rgba(244,199,107,0.18), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.055));
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .card-top h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 7px;
+    }
+
+    .tag {
+      white-space: nowrap;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.075);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: var(--gold-2);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .card-price {
+      font-size: 3.2rem;
+      letter-spacing: -0.07em;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .card-price small {
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: -0.01em;
+      font-weight: 700;
+    }
+
+    .desc {
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .includes {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 22px;
+      color: #ded6ee;
+    }
+
+    .includes li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      line-height: 1.45;
+    }
+
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .usage-card {
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .usage-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244, 199, 107, 0.32);
+    }
+
+    .usage-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .usage-amount {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      margin-bottom: 9px;
+    }
+
+    .usage-estimate {
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      min-height: 48px;
+    }
+
+    .meter {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .meter span {
+      display: block;
+      height: 100%;
+      width: var(--fill);
+      background: linear-gradient(90deg, var(--purple), var(--pink), var(--gold));
+      border-radius: inherit;
+    }
+
+    .calc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .calc-panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .range-wrap {
+      margin-top: 18px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--gold);
+    }
+
+    .calc-number {
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.07em;
+      margin: 10px 0;
+    }
+
+    .calc-result {
+      display: grid;
+      gap: 12px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted);
+    }
+
+    .result-row strong {
+      color: var(--text);
+    }
+
+    .fineprint {
+      margin-top: 18px;
+      padding: 20px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .faq-card {
+      padding: 22px;
+    }
+
+    .faq-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .faq-card p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    .footer-cta {
+      margin-top: 38px;
+      padding: 30px;
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid rgba(244, 199, 107, 0.28);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(244,199,107,0.20), transparent 32%),
+        radial-gradient(circle at 90% 100%, rgba(255,79,216,0.16), transparent 36%),
+        rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .footer-cta h2 {
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 7px;
+    }
+
+    .footer-cta p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .link-warning {
+      color: var(--danger);
+      font-size: 0.86rem;
+      margin-top: 8px;
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .pricing-grid,
+      .usage-grid,
+      .calc,
+      .faq-grid,
+      .footer-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-cta {
+        display: grid;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-actions .btn,
+      .price-card .btn,
+      .usage-card .btn,
+      .footer-cta .btn {
+        width: 100%;
+      }
+
+      .card-top {
+        display: block;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="nav">
+      <div class="brand">
+        <div class="logo">HDP</div>
+        <div>
+          <div>AI Receptionist</div>
+          <small style="color: var(--muted); font-weight: 600;">AI Receptionist + Appointment Setting</small>
+        </div>
+      </div>
+      <div class="nav-pill"><span class="dot"></span> Pricing built for real usage</div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Simple launch + usage credits</div>
+        <h1>AI voice agents that <span class="gradient-text">answer, follow up, and book.</span></h1>
+        <p class="hero-copy">
+          Start with a one-time setup, keep the platform active with a monthly subscription,
+          and use prepaid credits for AI voice minutes, phone usage, and processing costs.
+          No mystery bill. No unlimited-usage trap.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" data-link="monthly" href="#">Start Monthly Plan</a>
+          <a class="btn btn-secondary" href="#usage">Add Usage Credit</a>
+        </div>
+      </div>
+
+      <aside class="summary-panel hero-card">
+        <div class="total-box">
+          <div class="label">Platform subscription</div>
+          <div class="big-price"><strong>$99</strong><span>/month</span></div>
+          <p class="desc">For access, maintenance, dashboard, updates, and the active AI appointment-setting system.</p>
+          <div class="setup-badge">+$299 one-time setup</div>
+        </div>
+        <div class="mini-list">
+          <div><span class="check">✓</span><span>Inbound and outbound AI voice calling</span></div>
+          <div><span class="check">✓</span><span>Lead capture, dashboard, transcripts, and call notes</span></div>
+          <div><span class="check">✓</span><span>Usage credits keep phone/API costs covered as calls happen</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="plans">
+      <div class="section-title">
+        <h2>Core pricing</h2>
+        <p>The setup fee launches the system. The monthly fee keeps the platform active. Usage credits cover the actual AI voice and phone activity.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="price-card">
+          <div class="card-top">
+            <div>
+              <h3>One-Time Setup</h3>
+              <p class="desc">Configuration, campaign setup, script tuning, sheet/dashboard setup, and launch testing.</p>
+            </div>
+            <span class="tag">Launch</span>
+          </div>
+          <div class="card-price">$299 <small>one time</small></div>
+          <ul class="includes">
+            <li><span class="check">✓</span><span>AI receptionist campaign setup</span></li>
+            <li><span class="check">✓</span><span>Inbound/outbound call flow configuration</span></li>
+            <li><span class="check">✓</span><span>Lead sheet, dashboard, and follow-up pipeline setup</span></li>
+          </ul>
+          <a class="btn btn-secondary" data-link="setup" href="#">Pay Setup Fee</a>
+          <p class="link-warning" data-warning="setup">Add your setup-fee Stripe link in the JavaScript config.</p>
+        </article>
+
+        <article class="price-card featured">
+          <div class="card-top">
+            <div>
+              <h3>Monthly Platform</h3>
+              <p class="desc">Keeps the AI system active, monitored, updated, and ready to answer or follow up with leads.</p>
+            </div>
+            <span class="tag">Required</span>
+          </div>
+          <div class="card-price">$99 <small>/ month</small></div>
+          <ul class="includes">
+            <li><span class="check">✓</span><span>Dashboard and lead pipeline access</span></li>
+            <li><span class="check">✓</span><span>Call logging, transcripts, and appointment records</span></li>
+            <li><span class="check">✓</span><span>System maintenance and campaign support</span></li>
+          </ul>
+          <a class="btn btn-primary" data-link="monthly" href="#">Start Monthly Plan</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="usage">
+      <div class="section-title">
+        <h2>Usage credits</h2>
+        <p>Usage credits are prepaid. They cover AI voice minutes, phone usage, and processing costs as the agent handles calls.</p>
+      </div>
+
+      <div class="usage-grid">
+        <article class="usage-card">
+          <h3>Starter Credit</h3>
+          <div class="usage-amount">$50</div>
+          <p class="usage-estimate">Good for initial launch testing and light call volume.</p>
+          <div class="meter" aria-hidden="true"><span style="--fill: 35%"></span></div>
+          <a class="btn btn-secondary" data-link="credit50" href="#">Buy $50 Credit</a>
+        </article>
+
+        <article class="usage-card">
+          <h3>Growth Credit</h3>
+          <div class="usage-amount">$100</div>
+          <p class="usage-estimate">Best for regular lead follow-up and early campaign traction.</p>
+          <div class="meter" aria-hidden="true"><span style="--fill: 62%"></span></div>
+          <a class="btn btn-primary" data-link="credit100" href="#">Buy $100 Credit</a>
+          <p class="link-warning" data-warning="credit100">Add your $100 Stripe link in the JavaScript config.</p>
+        </article>
+
+        <article class="usage-card">
+          <h3>Scale Credit</h3>
+          <div class="usage-amount">$250</div>
+          <p class="usage-estimate">For higher-volume outbound campaigns and more active calling.</p>
+          <div class="meter" aria-hidden="true"><span style="--fill: 100%"></span></div>
+          <a class="btn btn-secondary" data-link="credit250" href="#">Buy $250 Credit</a>
+          <p class="link-warning" data-warning="credit250">Add your $250 Stripe link in the JavaScript config.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Usage estimator</h2>
+        <p>Use this quick estimate to explain why usage credits are separate from the monthly platform fee.</p>
+      </div>
+
+      <div class="calc">
+        <div class="calc-panel">
+          <div class="label">Estimated active AI voice usage</div>
+          <div class="calc-number"><span id="hoursValue">10</span> hrs</div>
+          <p class="desc">Move the slider to estimate the usage credit needed. The default estimate uses $5/hour as the internal usage planning number.</p>
+          <div class="range-wrap">
+            <input id="hoursRange" type="range" min="1" max="100" value="10" />
+          </div>
+        </div>
+        <div class="calc-panel calc-result">
+          <div class="result-row"><span>Estimated usage cost</span><strong id="usageCost">$50</strong></div>
+          <div class="result-row"><span>Recommended credit</span><strong id="recommendedCredit">$50 Starter</strong></div>
+          <div class="result-row"><span>Monthly platform</span><strong>$99</strong></div>
+          <div class="result-row"><span>One-time setup</span><strong>$299</strong></div>
+          <p class="desc">Final usage depends on call volume, call length, AI audio usage, phone usage, and campaign settings.</p>
+        </div>
+      </div>
+
+      <div class="fineprint">
+        <strong>Important:</strong> The $99/month platform fee is not unlimited usage. Usage credits are consumed as the agent answers calls, places follow-up calls, processes audio, and logs activity. This keeps the plan fair and protects every campaign from unexpected overages.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>How billing works</h2>
+        <p>Simple enough for a small business owner, protected enough for real-world AI voice usage.</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-card">
+          <h3>What does setup cover?</h3>
+          <p>Setup covers configuration, campaign scripting, dashboard/lead sheet setup, testing, and getting the first AI receptionist flow ready to launch.</p>
+        </article>
+        <article class="faq-card">
+          <h3>Why usage credits?</h3>
+          <p>Voice AI and phone minutes have real usage costs. Credits keep the system prepaid and transparent instead of bundling risky unlimited usage.</p>
+        </article>
+        <article class="faq-card">
+          <h3>What happens when credits run low?</h3>
+          <p>The account can be topped up with $50, $100, or $250 credits. Campaign usage can also be paused or limited to avoid surprise costs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="footer-cta">
+      <div>
+        <h2>Ready to launch your AI receptionist?</h2>
+        <p>Start with setup, activate the monthly platform, then add the usage credit that matches your expected call volume.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" data-link="setup" href="#">Pay Setup</a>
+        <a class="btn btn-secondary" data-link="monthly" href="#">Start Monthly</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STRIPE_LINKS = {
+      setup: "https://buy.stripe.com/6oU6oIgqO2oueTWdu2cs804",
+      monthly: "https://buy.stripe.com/5kQcN6eiG5AG13689Ics803",
+      credit50: "https://buy.stripe.com/dRmaEY3E2fbgeTW0Hgcs805",
+      credit100: "https://buy.stripe.com/00w14o6Qe1kqbHK75Ecs806",
+      credit250: "https://buy.stripe.com/3cI28s0rQfbgfY0blUcs807"
+    };
+
+    const COST_PER_HOUR_ESTIMATE = 5;
+
+    function recommendedCredit(cost) {
+      if (cost <= 50) return "$50 Starter";
+      if (cost <= 100) return "$100 Growth";
+      if (cost <= 250) return "$250 Scale";
+      return "$250+ Custom";
+    }
+
+    function updateCalculator() {
+      const range = document.getElementById("hoursRange");
+      const hours = Number(range.value);
+      const cost = hours * COST_PER_HOUR_ESTIMATE;
+      document.getElementById("hoursValue").textContent = hours;
+      document.getElementById("usageCost").textContent = `$${cost.toLocaleString()}`;
+      document.getElementById("recommendedCredit").textContent = recommendedCredit(cost);
+    }
+
+    function wirePaymentLinks() {
+      document.querySelectorAll("[data-link]").forEach((el) => {
+        const key = el.getAttribute("data-link");
+        const url = STRIPE_LINKS[key];
+        const warning = document.querySelector(`[data-warning="${key}"]`);
+
+        if (url && !url.startsWith("REPLACE_WITH")) {
+          el.setAttribute("href", url);
+          el.setAttribute("target", "_blank");
+          el.setAttribute("rel", "noopener noreferrer");
+        } else {
+          el.addEventListener("click", (event) => {
+            event.preventDefault();
+            if (warning) warning.style.display = "block";
+            alert("This Stripe payment link still needs to be added in the page JavaScript config.");
+          });
+        }
+      });
+    }
+
+    document.getElementById("hoursRange").addEventListener("input", updateCalculator);
+    updateCalculator();
+    wirePaymentLinks();
+  </script>
+</body>
+</html>
