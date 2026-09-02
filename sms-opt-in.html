@@ -10,9 +10,11 @@
     .sms-form { max-width: 720px; margin: 28px auto 0; text-align: left; }
     .sms-form label { display: block; font-weight: 700; margin: 16px 0 7px; }
     .sms-form input[type="text"], .sms-form input[type="tel"] { width: 100%; padding: 14px 16px; border: 1px solid #cfd4dc; border-radius: 10px; font: inherit; }
-    .consent-box { display: flex; gap: 12px; align-items: flex-start; margin: 22px 0; padding: 18px; border: 1px solid #cfd4dc; border-radius: 12px; background: #fff; }
+    .consent-box { display: flex; gap: 12px; align-items: flex-start; margin: 18px 0; padding: 18px; border: 1px solid #cfd4dc; border-radius: 12px; background: #fff; }
     .consent-box input { margin-top: 4px; width: 20px; height: 20px; flex: 0 0 auto; }
     .consent-box label { margin: 0; font-weight: 400; line-height: 1.55; }
+    .consent-heading { margin-top: 24px; font-weight: 800; }
+    .optional { font-weight: 700; }
     .form-note { font-size: .92rem; line-height: 1.55; color: #555; }
     .success-note { display: none; margin-top: 18px; padding: 14px 16px; border-radius: 10px; background: #eefbf2; border: 1px solid #a9d8b5; }
   </style>
@@ -23,7 +25,7 @@
   <div class="container contact-box" style="text-align:left;">
     <p class="eyebrow">SMS Communications</p>
     <h1 style="font-size:44px;color:#171717;">Opt in to Highest Degree Priorities SMS</h1>
-    <p>Use this form only if you want Highest Degree Priorities to communicate with you by text message about your inquiry, requested services, appointments, follow-up, and occasional offers related to Highest Degree Priorities services.</p>
+    <p>Use this form if you want Highest Degree Priorities to communicate with you by text message. Informational/service-related SMS consent and promotional/marketing SMS consent are collected separately below.</p>
 
     <form class="sms-form" id="smsOptInForm" method="post" action="https://textagent.highestdegreepriorities.com/api/leads/text" target="smsOptInSink">
       <label for="contact_name">Name</label>
@@ -35,20 +37,33 @@
       <label for="phone_number">Mobile phone number</label>
       <input id="phone_number" name="phone_number" type="tel" autocomplete="tel" inputmode="tel" required />
 
+      <p class="consent-heading">Informational / conversational SMS consent</p>
       <div class="consent-box">
-        <input id="sms_consent" name="sms_consent" type="checkbox" value="yes" required />
-        <label for="sms_consent">
-          I agree to receive recurring conversational and promotional SMS messages from <strong>Highest Degree Priorities</strong> regarding my inquiry, requested services, appointments, follow-up, and related offers. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help. Consent is not a condition of purchase. My mobile number and SMS consent will not be shared with third parties or affiliates for their marketing or promotional purposes. I have reviewed the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener">Terms and Conditions</a>.
+        <input id="informational_sms_consent" name="informational_sms_consent" type="checkbox" value="yes" required />
+        <label for="informational_sms_consent">
+          I agree to receive recurring informational and conversational SMS messages from <strong>Highest Degree Priorities</strong> regarding my inquiries, requested services, appointments, customer service, and related follow-up. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help. Consent is not a condition of purchase.
         </label>
       </div>
 
+      <p class="consent-heading">Promotional / marketing SMS consent <span class="optional">(optional)</span></p>
+      <div class="consent-box">
+        <input id="marketing_sms_consent" name="marketing_sms_consent" type="checkbox" value="yes" />
+        <label for="marketing_sms_consent">
+          I separately agree to receive occasional promotional and marketing SMS messages from <strong>Highest Degree Priorities</strong> about Highest Degree Priorities services, offers, and business solutions that may interest me. This promotional consent is optional and is not required to receive informational/service-related messages or to make a purchase. Message frequency varies. Message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help.
+        </label>
+      </div>
+
+      <p class="form-note"><strong>Privacy:</strong> Mobile phone numbers, SMS opt-in data, and SMS consent will not be shared with third parties or affiliates for their marketing or promotional purposes. See our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener">Terms and Conditions</a>.</p>
+
+      <input type="hidden" name="sms_consent" value="yes" />
       <input type="hidden" name="source" value="website_sms_opt_in" />
       <input type="hidden" name="status" value="sms_opted_in" />
       <input type="hidden" name="queue_initial_text" value="false" />
-      <input type="hidden" name="notes" value="Explicit web SMS opt-in submitted at highestdegreepriorities.com/sms-opt-in.html. Required unchecked checkbox accepted. Consent disclosure version 2026-09-02." />
+      <input id="consent_scope" type="hidden" name="consent_scope" value="informational_only" />
+      <input id="consent_notes" type="hidden" name="notes" value="Explicit web informational SMS opt-in submitted at highestdegreepriorities.com/sms-opt-in.html. Required informational checkbox accepted; promotional/marketing consent collected separately and was not selected. Consent disclosure version 2026-09-02b." />
 
       <button class="btn primary" type="submit">Submit SMS Opt-In</button>
-      <p class="form-note">Submitting this form does not immediately send a text message. It records your request and consent to receive eligible SMS communications from Highest Degree Priorities.</p>
+      <p class="form-note">Submitting this form does not immediately send a text message. It records your request and the SMS consent choices you make above.</p>
       <div class="success-note" id="successNote" role="status">Thank you. Your SMS opt-in request has been submitted.</div>
     </form>
     <iframe name="smsOptInSink" title="SMS opt-in submission" style="display:none;"></iframe>
@@ -57,6 +72,11 @@
 <footer class="site-footer"><div class="container footer-grid"><div><strong>Highest Degree Priorities</strong></div><div><a href="index.html">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms and Conditions</a><a href="mailto:contact@highestdegreepriorities.com">contact@highestdegreepriorities.com</a></div></div></footer>
 <script>
   document.getElementById('smsOptInForm').addEventListener('submit', function () {
+    const marketing = document.getElementById('marketing_sms_consent').checked;
+    document.getElementById('consent_scope').value = marketing ? 'informational_and_marketing' : 'informational_only';
+    document.getElementById('consent_notes').value = marketing
+      ? 'Explicit web informational SMS opt-in plus separate optional promotional/marketing SMS opt-in submitted at highestdegreepriorities.com/sms-opt-in.html. Both unchecked consent choices were affirmatively selected. Consent disclosure version 2026-09-02b.'
+      : 'Explicit web informational SMS opt-in submitted at highestdegreepriorities.com/sms-opt-in.html. Required informational checkbox accepted; separate optional promotional/marketing checkbox was not selected. Consent disclosure version 2026-09-02b.';
     document.getElementById('successNote').style.display = 'block';
   });
 </script>
