@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZD9GMMZ36"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ZD9GMMZ36');
+  </script>
+  <title>Automation Reliability Check | Highest Degree Priorities</title>
+  <meta name="description" content="Score the reliability of your business automations in about two minutes. Identify silent failures, duplicate data, weak monitoring, brittle integrations, and recovery gaps." />
+  <link rel="canonical" href="https://www.highestdegreepriorities.com/automation-reliability-check/" />
+  <meta property="og:title" content="Automation Reliability Check" />
+  <meta property="og:description" content="A free two-minute diagnostic for fragile business automations and workflow reliability risks." />
+  <meta property="og:url" content="https://www.highestdegreepriorities.com/automation-reliability-check/" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Automation Reliability Check",
+    "url":"https://www.highestdegreepriorities.com/automation-reliability-check/",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Web",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "provider":{"@type":"Organization","name":"Highest Degree Priorities","url":"https://www.highestdegreepriorities.com/"},
+    "description":"A free diagnostic that scores common business automation reliability risks including silent failures, duplicate data, monitoring, recovery, ownership, and manual babysitting."
+  }
+  </script>
+  <style>
+    :root{--bg:#f7f3ec;--ink:#171717;--muted:#5f5a52;--dark:#111827;--gold:#c8912e;--line:#e5ded2;--card:#fff}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+    a{color:inherit}.wrap{width:min(920px,calc(100% - 32px));margin:auto}.top{padding:18px 0}.top a{text-decoration:none;font-weight:800}
+    .hero{background:linear-gradient(135deg,#111827,#1f2937 60%,#3b2f1f);color:#fff;padding:64px 0}.eyebrow{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    h1{font-size:clamp(38px,7vw,66px);line-height:1;letter-spacing:-.05em;margin:12px 0 18px}h2{font-size:30px;margin:0 0 12px}.hero p{max-width:760px;font-size:19px;color:rgba(255,255,255,.8)}
+    main{padding:42px 0 70px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.06);margin-bottom:20px}
+    .q{margin:0 0 24px}.q strong{display:block;margin-bottom:9px}.options{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.options label{border:1px solid var(--line);border-radius:14px;padding:11px;cursor:pointer;background:#fff}.options input{margin-right:7px}
+    .btn{display:inline-block;border:0;border-radius:999px;padding:14px 20px;font-weight:800;text-decoration:none;cursor:pointer}.primary{background:var(--gold);color:#15110a}.secondary{border:1px solid var(--gold);color:#8d651d;background:transparent}
+    #result{display:none}.score{font-size:54px;font-weight:900;letter-spacing:-.05em;margin:8px 0}.meter{height:14px;background:#eee5d8;border-radius:999px;overflow:hidden;margin:18px 0}.meter span{height:100%;display:block;background:var(--gold);width:0}
+    .risk-list{padding-left:20px}.fine{font-size:13px;color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    footer{background:var(--dark);color:#fff;padding:30px 0}footer p{color:rgba(255,255,255,.7)}
+    @media(max-width:650px){.options{grid-template-columns:1fr}.hero{padding:48px 0}}
+  </style>
+</head>
+<body>
+  <div class="top"><div class="wrap"><a href="https://www.highestdegreepriorities.com/">← Highest Degree Priorities</a></div></div>
+  <section class="hero"><div class="wrap">
+    <div class="eyebrow">Free diagnostic • About 2 minutes</div>
+    <h1>How reliable are your business automations?</h1>
+    <p>Score the weak points that make workflows break, duplicate data, silently fail, or require constant human babysitting. No login or contact information required.</p>
+  </div></section>
+  <main><div class="wrap">
+    <form id="check" class="card">
+      <h2>Automation Reliability Check</h2>
+      <p>Choose the answer that best describes the automations you rely on today.</p>
+      <div id="questions"></div>
+      <button class="btn primary" type="submit">Calculate reliability score</button>
+    </form>
+    <section id="result" class="card" aria-live="polite">
+      <div class="eyebrow">Your result</div>
+      <div class="score"><span id="score">0</span>/100</div>
+      <div class="meter"><span id="bar"></span></div>
+      <h2 id="band"></h2>
+      <p id="summary"></p>
+      <ul id="risks" class="risk-list"></ul>
+      <div class="actions">
+        <a id="auditCta" class="btn primary" href="https://offer.highestdegreepriorities.com/">See the $495 Workflow Reliability Audit</a>
+        <button id="again" type="button" class="btn secondary">Retake check</button>
+      </div>
+      <p class="fine">This is a directional operational diagnostic, not a security, compliance, or engineering certification.</p>
+    </section>
+  </div></main>
+  <footer><div class="wrap"><strong>Highest Degree Priorities</strong><p>AI automation, workflow reliability, business assessment, and practical growth systems.</p></div></footer>
+  <script>
+    const qs=[
+      ['Failure visibility','When an automation fails, how quickly do you know?',['Usually immediately','Eventually / someone notices','We often do not know']],
+      ['Retries and recovery','What happens after a temporary API, browser, or network failure?',['Automatic retry/recovery','Some retries, some manual fixes','It usually stops or needs intervention']],
+      ['Duplicate prevention','How well do workflows prevent duplicate records, messages, or actions?',['Strong dedupe/idempotency','Mostly controlled','Duplicates happen or are hard to detect']],
+      ['Monitoring','Do critical workflows have logs, alerts, or health checks?',['Yes, consistently','Only for some workflows','Little or no monitoring']],
+      ['Change resilience','What happens when a website, API, field name, or integration changes?',['We detect and handle it quickly','It sometimes breaks','Breakage is common/unpredictable']],
+      ['Ownership','Is there a clear owner for each important automation?',['Yes','Usually','No / unclear']],
+      ['Manual babysitting','How much routine human checking is required?',['Very little','Some','A lot']],
+      ['Business continuity','Could the business operate if an automation failed for a day?',['Yes, with a clear fallback','With difficulty','It would create serious disruption']]
+    ];
+    const root=document.getElementById('questions');
+    qs.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<strong>${i+1}. ${q[0]}</strong><span>${q[1]}</span><div class="options">${q[2].map((x,j)=>`<label><input type="radio" name="q${i}" value="${2-j}" required>${x}</label>`).join('')}</div>`;root.appendChild(d)});
+    document.getElementById('check').addEventListener('submit',e=>{
+      e.preventDefault(); let raw=0, weak=[];
+      qs.forEach((q,i)=>{const v=Number(new FormData(e.target).get('q'+i));raw+=v;if(v===0)weak.push(q[0]);});
+      const score=Math.round(raw/(qs.length*2)*100);document.getElementById('score').textContent=score;document.getElementById('bar').style.width=score+'%';
+      let band,summary;if(score>=80){band='Strong foundation';summary='Your automations appear comparatively well controlled. The next value is usually proving recovery, ownership, and monitoring under real failure conditions.'}else if(score>=55){band='Reliability gaps worth fixing';summary='Your workflows are producing value, but several weaknesses can turn normal exceptions into hidden operational cost or downtime.'}else{band='High fragility risk';summary='Your automation stack likely depends too much on manual intervention or lacks enough visibility and recovery controls. Reliability work may pay back quickly.'}
+      document.getElementById('band').textContent=band;document.getElementById('summary').textContent=summary;
+      const ul=document.getElementById('risks');ul.innerHTML=weak.length?'<strong>Highest-risk areas from your answers:</strong>'+weak.map(x=>`<li>${x}</li>`).join(''):'<li>No area scored in the highest-risk category.</li>';
+      document.getElementById('result').style.display='block';document.getElementById('result').scrollIntoView({behavior:'smooth'});
+      if(window.gtag)gtag('event','automation_reliability_check_completed',{reliability_score:score,reliability_band:band});
+    });
+    document.getElementById('auditCta').addEventListener('click',()=>{if(window.gtag)gtag('event','workflow_audit_cta_click',{source:'automation_reliability_check'})});
+    document.getElementById('again').addEventListener('click',()=>{document.getElementById('check').reset();document.getElementById('result').style.display='none';document.getElementById('check').scrollIntoView({behavior:'smooth'})});
+  </script>
+</body>
+</html>
