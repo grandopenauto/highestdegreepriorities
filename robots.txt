@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
 Allow: /ads.txt
+
+Sitemap: https://www.highestdegreepriorities.com/sitemap.xml
