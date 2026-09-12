@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZD9GMMZ36"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ZD9GMMZ36');
+  </script>
+  <title>Sample Workflow Reliability Audit | Highest Degree Priorities</title>
+  <meta name="description" content="See an illustrative Workflow Reliability Audit showing failure mapping, risk ranking, root causes, and a prioritized hardening plan for a business automation." />
+  <link rel="canonical" href="https://www.highestdegreepriorities.com/workflow-reliability-audit-example/" />
+  <meta property="og:title" content="Sample Workflow Reliability Audit" />
+  <meta property="og:description" content="An illustrative example of the evidence and repair priorities produced by a workflow reliability audit." />
+  <meta property="og:url" content="https://www.highestdegreepriorities.com/workflow-reliability-audit-example/" />
+  <meta property="og:type" content="article" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Sample Workflow Reliability Audit",
+    "description":"An illustrative example of a workflow reliability audit for a lead intake and follow-up automation.",
+    "author":{"@type":"Organization","name":"Highest Degree Priorities","url":"https://www.highestdegreepriorities.com/"},
+    "publisher":{"@type":"Organization","name":"Highest Degree Priorities","url":"https://www.highestdegreepriorities.com/"},
+    "mainEntityOfPage":"https://www.highestdegreepriorities.com/workflow-reliability-audit-example/"
+  }
+  </script>
+  <style>
+    :root{--bg:#f7f3ec;--ink:#171717;--muted:#625e57;--dark:#111827;--gold:#c8912e;--line:#e4ddd1;--card:#fff;--risk:#9f2d20;--warn:#9a6510;--ok:#2f6d48}
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}a{color:inherit}.wrap{width:min(980px,calc(100% - 32px));margin:auto}.top{padding:18px 0}.top a{text-decoration:none;font-weight:800}.hero{background:linear-gradient(135deg,#111827,#253145 65%,#47351f);color:white;padding:60px 0}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:900;color:var(--gold)}h1{font-size:clamp(38px,7vw,64px);line-height:1;letter-spacing:-.045em;margin:12px 0 18px}h2{font-size:30px;margin:0 0 12px}h3{margin:0 0 8px}.hero p{max-width:760px;color:rgba(255,255,255,.8);font-size:19px}main{padding:38px 0 68px}.notice{background:#fff7e7;border:1px solid #e8c982;border-radius:16px;padding:15px 18px;margin-bottom:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;margin-bottom:18px;box-shadow:0 14px 36px rgba(0,0,0,.045)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:18px}.step{padding:13px;border-radius:14px;background:#f4efe6;border:1px solid var(--line);font-size:14px}.risk{border-left:5px solid var(--risk)}.warn{border-left:5px solid var(--warn)}.ok{border-left:5px solid var(--ok)}.tag{display:inline-block;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.high{background:#fde5e2;color:#7e2118}.medium{background:#fff0cc;color:#7c520d}.good{background:#e0f0e6;color:#285e3e}table{width:100%;border-collapse:collapse;margin-top:12px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.btn{display:inline-block;padding:14px 20px;border-radius:999px;text-decoration:none;font-weight:900}.primary{background:var(--gold);color:#181108}.secondary{border:1px solid var(--gold);color:#855e18}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.muted{color:var(--muted)}footer{background:var(--dark);color:#fff;padding:30px 0}footer p{color:rgba(255,255,255,.68)}@media(max-width:760px){.grid,.flow{grid-template-columns:1fr}table{font-size:14px}}
+  </style>
+</head>
+<body>
+  <div class="top"><div class="wrap"><a href="https://www.highestdegreepriorities.com/">← Highest Degree Priorities</a></div></div>
+  <section class="hero"><div class="wrap">
+    <div class="eyebrow">Illustrative deliverable</div>
+    <h1>Sample Workflow Reliability Audit</h1>
+    <p>What a bounded reliability audit can look like when an automation technically works, but failures, duplicate actions, and manual recovery make it expensive to trust.</p>
+  </div></section>
+  <main><div class="wrap">
+    <div class="notice"><strong>This is a synthetic example, not a client result.</strong> It is designed to show the structure and level of evidence an HDP Workflow Reliability Audit can produce without exposing customer systems or private data.</div>
+
+    <section class="card">
+      <div class="eyebrow">Example system</div>
+      <h2>Lead intake → CRM → team alert → follow-up</h2>
+      <p class="muted">Scenario: a service business relies on a web lead form that creates a CRM record, writes a tracking row, alerts the sales team, and starts an automated email follow-up. The workflow succeeds most of the time, but staff still check it manually because failures are difficult to detect.</p>
+      <div class="flow">
+        <div class="step"><strong>1. Web form</strong><br>Lead submits</div>
+        <div class="step"><strong>2. Webhook</strong><br>Payload received</div>
+        <div class="step"><strong>3. CRM</strong><br>Contact + deal</div>
+        <div class="step"><strong>4. Alert</strong><br>Team notified</div>
+        <div class="step"><strong>5. Follow-up</strong><br>Email sequence</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card risk"><span class="tag high">High</span><h3>Silent partial failure</h3><p>The CRM step can succeed while the alert step fails. The workflow reports completion even though the sales team never sees the lead.</p></article>
+      <article class="card risk"><span class="tag high">High</span><h3>Duplicate creation</h3><p>Webhook retries have no durable idempotency key. A timeout followed by retry can create two deals and trigger duplicate follow-up.</p></article>
+      <article class="card warn"><span class="tag medium">Medium</span><h3>Weak recovery path</h3><p>Transient API failures retry only once. Failed payloads are not retained in a durable recovery queue.</p></article>
+      <article class="card warn"><span class="tag medium">Medium</span><h3>Manual babysitting</h3><p>Staff compare form notifications against CRM records because there is no reliable exception dashboard or reconciliation signal.</p></article>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">Evidence map</div>
+      <h2>Observed failure modes and likely business impact</h2>
+      <table>
+        <thead><tr><th>Finding</th><th>Evidence to reproduce</th><th>Business risk</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>Alert can fail after CRM success</td><td>Force alert provider 500 response after CRM record creation</td><td>Lead exists but receives no timely human response</td><td><span class="tag high">High</span></td></tr>
+          <tr><td>Duplicate deal on retry</td><td>Delay CRM response until webhook sender retries same payload</td><td>Duplicate outreach, reporting distortion, customer confusion</td><td><span class="tag high">High</span></td></tr>
+          <tr><td>No durable failed-event queue</td><td>Disconnect CRM API beyond retry window</td><td>Lead data can require manual reconstruction</td><td><span class="tag medium">Medium</span></td></tr>
+          <tr><td>No end-to-end reconciliation</td><td>Compare daily form count with CRM + follow-up count</td><td>Humans remain the monitoring system</td><td><span class="tag medium">Medium</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">Prioritized repair plan</div>
+      <h2>What we would harden first</h2>
+      <ol>
+        <li><strong>Add a durable event ID and idempotency check</strong> before any side-effecting CRM or messaging action.</li>
+        <li><strong>Separate workflow completion from business completion</strong> so each required downstream step has an explicit success state.</li>
+        <li><strong>Add bounded retries with a recovery queue</strong> for transient API failures instead of dropping the event after one retry.</li>
+        <li><strong>Add an exception alert and reconciliation check</strong> comparing submitted leads against CRM creation and follow-up initiation.</li>
+        <li><strong>Document manual fallback and ownership</strong> so a failed automation does not become an undefined operational emergency.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <div class="eyebrow">Audit output</div>
+      <h2>The goal is evidence, not a generic automation review.</h2>
+      <p>A real HDP Workflow Reliability Audit begins with the actual workflow, reproduces realistic failures where practical, maps business impact, and produces a prioritized repair/hardening plan. Repair work is scoped separately so the diagnostic remains bounded.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://offer.highestdegreepriorities.com/" onclick="if(window.gtag)gtag('event','workflow_audit_cta_click',{source:'sample_audit'})">See the $495 Workflow Reliability Audit</a>
+        <a class="btn secondary" href="https://www.highestdegreepriorities.com/automation-reliability-check/" onclick="if(window.gtag)gtag('event','reliability_check_cta_click',{source:'sample_audit'})">Take the free reliability check</a>
+      </div>
+    </section>
+  </div></main>
+  <footer><div class="wrap"><strong>Highest Degree Priorities</strong><p>AI automation, workflow reliability, business assessment, and practical growth systems.</p></div></footer>
+</body>
+</html>
