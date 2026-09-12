@@ -69,6 +69,7 @@
       <ul id="risks" class="risk-list"></ul>
       <div class="actions">
         <a id="auditCta" class="btn primary" href="https://offer.highestdegreepriorities.com/">See the $495 Workflow Reliability Audit</a>
+        <a id="sampleCta" class="btn secondary" href="https://www.highestdegreepriorities.com/workflow-reliability-audit-example/">View a sample audit</a>
         <button id="again" type="button" class="btn secondary">Retake check</button>
       </div>
       <p class="fine">This is a directional operational diagnostic, not a security, compliance, or engineering certification.</p>
@@ -99,6 +100,7 @@
       if(window.gtag)gtag('event','automation_reliability_check_completed',{reliability_score:score,reliability_band:band});
     });
     document.getElementById('auditCta').addEventListener('click',()=>{if(window.gtag)gtag('event','workflow_audit_cta_click',{source:'automation_reliability_check'})});
+    document.getElementById('sampleCta').addEventListener('click',()=>{if(window.gtag)gtag('event','sample_audit_cta_click',{source:'automation_reliability_check'})});
     document.getElementById('again').addEventListener('click',()=>{document.getElementById('check').reset();document.getElementById('result').style.display='none';document.getElementById('check').scrollIntoView({behavior:'smooth'})});
   </script>
 </body>
