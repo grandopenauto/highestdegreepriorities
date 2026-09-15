@@ -1,5 +1,8 @@
-import sys, json
+import os
+import sys
+import json
 
+os.chdir(r"C:\HDP\EmailAgent")
 sys.path.insert(0, r"C:\HDP\EmailAgent")
 from app.integrations.gmail_client import GmailClient
 
