@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://www.highestdegreepriorities.com/voice-configurator/demo.html">
+<title>Call My Configured Agent | Highest Degree Priorities</title>
+<meta name="description" content="Launch your paid HDP configured AI receptionist demonstration.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZD9GMMZ36"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2ZD9GMMZ36');</script>
+<style>
+:root{--bg:#08111f;--panel:#101c2d;--text:#eef6ff;--muted:#aebdd0;--line:#29405c;--accent:#72e1c0;--warn:#ffd889}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 20% 0,#102b3b 0,transparent 32%),var(--bg);color:var(--text)}a{color:var(--accent)}.shell{width:min(820px,calc(100% - 32px));margin:auto}.hero{padding:64px 0 28px}.eyebrow{text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-size:12px;font-weight:800}.hero h1{font-size:clamp(38px,7vw,68px);line-height:1;margin:12px 0 18px}.hero p{font-size:18px;line-height:1.6;color:var(--muted)}.card{background:rgba(16,28,45,.96);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 18px 60px rgba(0,0,0,.2);margin-bottom:20px}.status{padding:13px;border:1px solid var(--line);border-radius:12px;background:#0a1626;color:var(--muted);line-height:1.5}.status.good{border-color:var(--accent);color:var(--text)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat{border:1px solid var(--line);border-radius:14px;padding:16px;background:#0b1829}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:25px}label{display:block;font-weight:700;margin:14px 0 7px}input[type=tel]{width:100%;padding:13px;border-radius:11px;border:1px solid var(--line);background:#0a1626;color:var(--text);font:inherit}.consent{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;padding:13px;background:#0b1829;margin:15px 0}.consent input{margin-top:4px}.btn{appearance:none;border:0;border-radius:12px;padding:13px 17px;font-weight:800;cursor:pointer;background:var(--accent);color:#072018}.btn:disabled{opacity:.45;cursor:not-allowed}.note{color:var(--muted);font-size:13px;line-height:1.55}.hash{word-break:break-all;color:var(--accent);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px}footer{padding:30px 0 48px;color:var(--muted);font-size:13px;display:flex;gap:18px;flex-wrap:wrap}@media(max-width:650px){.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="shell">
+<section class="hero"><div class="eyebrow">Highest Degree Priorities · Configured Voice Demo</div><h1>Talk to the agent you configured.</h1><p>Your paid demo uses the exact saved configuration associated with your configuration hash. Enter the number you want called and explicitly request the callback.</p></section>
+<section class="card">
+<h2>Demo entitlement</h2>
+<div id="status" class="status">Confirming your paid activation…</div>
+<div class="stats"><div class="stat"><span>Calls remaining</span><strong id="remaining">—</strong></div><div class="stat"><span>Maximum calls</span><strong id="maximum">3</strong></div><div class="stat"><span>Maximum per call</span><strong id="duration">3:20</strong></div></div>
+<p class="note">Configuration hash</p><div id="hash" class="hash">—</div>
+</section>
+<section class="card">
+<h2>Call my agent</h2>
+<p class="note">For this initial self-service release, callback numbers must be U.S./Canada +1 numbers. The configured demo is conversation-only: it will not actually book appointments, send messages, update a CRM, transfer calls, or execute other customer workflows.</p>
+<label for="phone">Phone number</label><input id="phone" type="tel" autocomplete="tel" placeholder="+17075551212">
+<label class="consent"><input id="consent" type="checkbox"><span>I am requesting Highest Degree Priorities to place this AI demo callback to the number above now.</span></label>
+<button id="call" class="btn" disabled>Call My Agent</button>
+<div id="callStatus" class="status" style="margin-top:16px">Payment entitlement must be confirmed before a callback can start.</div>
+</section>
+<section class="card"><h3>Need to change the configuration?</h3><p class="note">Changes create a new configuration version and hash. Because payment is bound to the exact version purchased, return to the configurator before changing anything you want this paid demo to represent.</p><a href="/voice-configurator/">Return to Voice Configurator</a></section>
+</main>
+<footer class="shell"><span>Highest Degree Priorities</span><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></footer>
+<script>
+const API='https://businessassessment.highestdegreepriorities.com/voice-demo-api/api/';
+const configId=localStorage.getItem('hdp_voice_config_id')||'';
+const manageToken=localStorage.getItem('hdp_voice_manage_token')||'';
+const $=id=>document.getElementById(id);
+let entitlement=null;
+function headers(){return{'Content-Type':'application/json','Authorization':'Bearer '+manageToken}}
+async function request(path,opt={}){const r=await fetch(API+path,{...opt,headers:{...headers(),...(opt.headers||{})}});let j={};try{j=await r.json()}catch{}if(!r.ok)throw new Error(j.error||'Request failed');return j}
+function setStatus(text,good=false){$('status').textContent=text;$('status').classList.toggle('good',good)}
+function render(e){entitlement=e;if(!e.entitled){$('remaining').textContent='0';$('call').disabled=true;setStatus(e.reason||'Paid demo activation has not been confirmed yet.');return}$('remaining').textContent=e.calls_remaining;$('maximum').textContent=e.max_calls;$('duration').textContent=Math.floor(e.max_seconds_per_call/60)+':'+String(e.max_seconds_per_call%60).padStart(2,'0');$('hash').textContent=e.config_hash||'—';$('call').disabled=e.calls_remaining<=0;setStatus(e.calls_remaining>0?'Paid activation confirmed. Your configured agent is ready.':'Your demo call allowance has been used.',true);$('callStatus').textContent=e.calls_remaining>0?'Enter your number, confirm the callback request, then press Call My Agent.':'No demo calls remain.'}
+async function refresh(attempt=0){if(!configId||!manageToken){setStatus('This browser does not have the saved Voice Agent configuration. Open this page in the same browser/device used to configure and purchase the agent.');return}try{const e=await request('configs/'+configId+'/demo-entitlement');render(e);if(!e.entitled&&attempt<7){$('status').textContent='Payment received by Stripe. Waiting for verified activation…';setTimeout(()=>refresh(attempt+1),2000)}}catch(err){setStatus(err.message)}}
+$('call').onclick=async()=>{if(!$('consent').checked){$('callStatus').textContent='Please confirm that you are requesting this callback.';return}const phone=$('phone').value.trim();$('call').disabled=true;$('callStatus').textContent='Starting your configured demo callback…';try{const r=await request('configs/'+configId+'/call-my-agent',{method:'POST',body:JSON.stringify({phone,consent_to_callback:true})});$('callStatus').textContent=r.message+' Up to '+Math.floor(r.max_seconds_this_call/60)+' minutes '+(r.max_seconds_this_call%60)+' seconds. Calls remaining after this one: '+r.calls_remaining+'.';gtag('event','voice_config_demo_call_started',{calls_remaining:r.calls_remaining});await refresh()}catch(err){$('callStatus').textContent=err.message;if(entitlement&&entitlement.calls_remaining>0)$('call').disabled=false}};
+refresh();
+</script>
+</body>
+</html>
