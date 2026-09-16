@@ -27,7 +27,7 @@
   <script src="../../analytics-events.js" defer></script>
   <link rel="stylesheet" href="../../styles.css" />
   <style>
-    .intake-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}.intake-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.08)}.field{margin-bottom:18px}.field label{display:block;margin-bottom:7px}.field select,.field input,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font:inherit}.result{display:none;margin-top:22px;padding:22px;border:1px solid var(--gold);border-radius:18px;background:#fffaf2}.result.show{display:block}.result h3{margin-bottom:7px}.route-list{margin:8px 0 18px;padding-left:20px}.small{font-size:13px;color:var(--muted)}@media(max-width:840px){.intake-grid{grid-template-columns:1fr}}
+    .intake-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}.intake-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.08)}.field{margin-bottom:18px}.field label{display:block;margin-bottom:7px}.field select,.field input,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;font:inherit}.result{display:none;margin-top:22px;padding:22px;border:1px solid var(--gold);border-radius:18px;background:#fffaf2}.result.show{display:block}.result h3{margin-bottom:7px}.route-list{margin:8px 0 18px;padding-left:20px}.small{font-size:13px;color:var(--muted)}.submit-status{margin-top:12px;font-size:14px}.submit-status.ok{color:#176b3a}.submit-status.error{color:#8c2f1d}.fallback-link{display:none;margin-top:10px}.fallback-link.show{display:inline-block}.hp-field{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}@media(max-width:840px){.intake-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -114,21 +114,26 @@
 
           <div class="field">
             <label for="goal">What would a useful result look like?</label>
-            <textarea id="goal" rows="5" placeholder="Example: reduce dispatch admin, recruit two drivers, build a shipper prospect pipeline, organize paperwork, improve Google visibility, or connect several workflows together."></textarea>
+            <textarea id="goal" rows="5" minlength="8" required placeholder="Example: reduce dispatch admin, recruit two drivers, build a shipper prospect pipeline, organize paperwork, improve Google visibility, or connect several workflows together."></textarea>
           </div>
 
           <div class="field">
             <label for="name">Name / company</label>
-            <input id="name" type="text" placeholder="Your name or business name" />
+            <input id="name" type="text" maxlength="180" placeholder="Your name or business name" />
           </div>
 
           <div class="field">
             <label for="reply">Best reply email or phone</label>
-            <input id="reply" type="text" placeholder="Where should HDP reply?" />
+            <input id="reply" type="text" maxlength="240" required placeholder="Where should HDP reply?" />
+          </div>
+
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" type="text" tabindex="-1" autocomplete="off" />
           </div>
 
           <button class="btn primary" type="submit">Build My Transportation Route</button>
-          <p class="small">This diagnostic does not create a regulated freight brokerage relationship or guarantee a particular operational, funding, recruiting or compliance outcome.</p>
+          <p class="small">This diagnostic does not create a regulated freight brokerage relationship or guarantee a particular operational, funding, recruiting or compliance outcome. Contact details are used so HDP can review and respond; submitting does not automatically trigger calls, texts or outreach sequences.</p>
 
           <div class="result" id="result">
             <p class="eyebrow">Recommended Starting Lane</p>
@@ -136,6 +141,8 @@
             <p id="routeText"></p>
             <ul class="route-list" id="routeList"></ul>
             <a class="btn primary" id="sendInquiry" href="#">Send Structured Inquiry to HDP</a>
+            <p class="submit-status" id="submitStatus" aria-live="polite"></p>
+            <a class="fallback-link" id="emailFallback" href="mailto:contact@highestdegreepriorities.com">Email the inquiry instead</a>
           </div>
         </form>
 
@@ -163,6 +170,7 @@
   </footer>
 
   <script>
+    const INTAKE_ENDPOINT = 'https://businessanalyst.highestdegreepriorities.com/api/transportation/intake';
     const routes = {
       dispatch:{title:'Dispatch Operations',text:'Start with the carrier-side dispatch workflow and the coordination required to keep loads, broker communication, schedules, status and documents organized.',items:['Dispatch process review','Load and status workflow','Broker communication handoffs','Document and exception routing']},
       recruiting:{title:'Driver + Owner-Operator Recruiting',text:'Start with the recruiting funnel and visibility from applicant intake through qualification and hiring handoff.',items:['Recruiting landing/intake flow','Candidate screening workflow','Follow-up and scheduling','Pipeline visibility']},
@@ -175,24 +183,92 @@
       multiple:{title:'HDP Transportation Operations',text:'Your needs span multiple functions, so the right starting point is a bounded operating review that identifies the first constraint and sequences the rest.',items:['Operating constraint map','Priority workflow','30-day proof scope','Expansion path across dispatch, recruiting, growth and back office']}
     };
 
+    function currentIntake() {
+      return {
+        role: document.getElementById('role').value,
+        need: document.getElementById('need').value,
+        fleet: document.getElementById('fleet').value,
+        goal: document.getElementById('goal').value.trim(),
+        name: document.getElementById('name').value.trim(),
+        reply: document.getElementById('reply').value.trim(),
+        website: document.getElementById('website').value.trim()
+      };
+    }
+
+    function buildFallback(route, intake) {
+      const subject = `Transportation Intake — ${route.title}`;
+      const body = `HDP Transportation Operations Intake\n\nName / company: ${intake.name}\nReply: ${intake.reply}\nRole: ${intake.role}\nStage / fleet: ${intake.fleet}\nConstraint: ${route.title}\nDesired result: ${intake.goal}\n\nPlease review and recommend the best bounded starting scope.`;
+      return `mailto:contact@highestdegreepriorities.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
     document.getElementById('transportIntake').addEventListener('submit', function(e){
       e.preventDefault();
-      const need = document.getElementById('need').value;
-      const route = routes[need];
+      const intake = currentIntake();
+      const route = routes[intake.need];
       if(!route) return;
       document.getElementById('routeTitle').textContent = route.title;
       document.getElementById('routeText').textContent = route.text;
       document.getElementById('routeList').innerHTML = route.items.map(x => `<li>${x}</li>`).join('');
-      const role = document.getElementById('role').value;
-      const fleet = document.getElementById('fleet').value;
-      const goal = document.getElementById('goal').value;
-      const name = document.getElementById('name').value;
-      const reply = document.getElementById('reply').value;
-      const subject = `Transportation Intake — ${route.title}`;
-      const body = `HDP Transportation Operations Intake\n\nName / company: ${name}\nReply: ${reply}\nRole: ${role}\nStage / fleet: ${fleet}\nConstraint: ${route.title}\nDesired result: ${goal}\n\nPlease review and recommend the best bounded starting scope.`;
-      document.getElementById('sendInquiry').href = `mailto:contact@highestdegreepriorities.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const fallback = buildFallback(route, intake);
+      document.getElementById('sendInquiry').href = fallback;
+      document.getElementById('emailFallback').href = fallback;
+      document.getElementById('emailFallback').classList.remove('show');
+      const status = document.getElementById('submitStatus');
+      status.textContent = '';
+      status.className = 'submit-status';
+      const send = document.getElementById('sendInquiry');
+      send.textContent = 'Send Structured Inquiry to HDP';
+      send.removeAttribute('aria-disabled');
       document.getElementById('result').classList.add('show');
       document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
+    });
+
+    document.getElementById('sendInquiry').addEventListener('click', async function(e){
+      e.preventDefault();
+      const send = this;
+      if(send.getAttribute('aria-disabled') === 'true') return;
+      const intake = currentIntake();
+      const route = routes[intake.need];
+      const status = document.getElementById('submitStatus');
+      const fallback = document.getElementById('emailFallback');
+      if(!route || !intake.role || !intake.goal || !intake.reply) {
+        status.textContent = 'Please complete the intake fields first.';
+        status.className = 'submit-status error';
+        return;
+      }
+      send.setAttribute('aria-disabled','true');
+      send.textContent = 'Submitting…';
+      status.textContent = 'Securely submitting your Transportation intake…';
+      status.className = 'submit-status';
+      fallback.classList.remove('show');
+      try {
+        const response = await fetch(INTAKE_ENDPOINT, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(intake)
+        });
+        const data = await response.json().catch(() => ({}));
+        if(!response.ok || !data.success || !data.accepted) throw new Error(data.error || `submission_${response.status}`);
+        status.textContent = `Received. HDP has your intake and will review the ${data.recommended_lane || route.title} starting lane.`;
+        status.className = 'submit-status ok';
+        send.textContent = 'Inquiry Received';
+        if(typeof window.gtag === 'function') {
+          window.gtag('event', 'structured_inquiry_submitted', {
+            transport_role: intake.role,
+            transport_need: intake.need,
+            transport_fleet_stage: intake.fleet,
+            transport_lane: data.recommended_lane || route.title,
+            page_location: window.location.href
+          });
+        }
+      } catch (err) {
+        console.error('Transportation intake submission failed', err);
+        status.textContent = 'The secure form could not submit right now. Your information is still in this page; use the email fallback below so it is not lost.';
+        status.className = 'submit-status error';
+        fallback.classList.add('show');
+        send.textContent = 'Try Secure Submission Again';
+        send.removeAttribute('aria-disabled');
+      }
     });
   </script>
 </body>
