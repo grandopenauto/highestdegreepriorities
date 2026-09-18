@@ -5,19 +5,22 @@ document.addEventListener('click', function (event) {
   const href = link.href || '';
   let eventName = '';
 
-  if (link.id === 'sendInquiry' && document.getElementById('transportIntake')) {
+  const explicitEvent = link.dataset?.analytics || '';
+  if (explicitEvent) eventName = explicitEvent;
+
+  if (!eventName && link.id === 'sendInquiry' && document.getElementById('transportIntake')) {
     eventName = 'structured_inquiry_clicked';
-  } else if (href.includes('calendly.com/hgerling2/growth_assessment')) {
+  } else if (!eventName && href.includes('calendly.com/hgerling2/growth_assessment')) {
     eventName = 'assessment_start';
-  } else if (href.includes('/leadgen-demo/')) {
+  } else if (!eventName && href.includes('/leadgen-demo/')) {
     eventName = 'lead_system_demo';
-  } else if (href.includes('offer.highestdegreepriorities.com')) {
+  } else if (!eventName && href.includes('offer.highestdegreepriorities.com')) {
     eventName = 'workflow_rescue_interest';
-  } else if (href.includes('buy.stripe.com/')) {
+  } else if (!eventName && href.includes('buy.stripe.com/')) {
     eventName = 'resume_builder_checkout';
-  } else if (href.includes('sms-opt-in.html')) {
+  } else if (!eventName && href.includes('sms-opt-in.html')) {
     eventName = 'sms_opt_in_view';
-  } else if (href.startsWith('mailto:contact@highestdegreepriorities.com')) {
+  } else if (!eventName && href.startsWith('mailto:contact@highestdegreepriorities.com')) {
     eventName = 'contact_email_click';
   }
 
