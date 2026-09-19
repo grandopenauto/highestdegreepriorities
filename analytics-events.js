@@ -1,3 +1,34 @@
+(function () {
+  const QA_KEY = 'hdp_internal_qa';
+  const params = new URLSearchParams(window.location.search);
+  const source = (params.get('utm_source') || '').toLowerCase();
+  const medium = (params.get('utm_medium') || '').toLowerCase();
+  const qaFlag = params.get('hdp_qa');
+
+  try {
+    if (qaFlag === '1' || source === 'hdp_internal' || medium === 'qa') {
+      window.localStorage.setItem(QA_KEY, '1');
+    } else if (qaFlag === '0') {
+      window.localStorage.removeItem(QA_KEY);
+    }
+    window.__HDP_INTERNAL_QA__ = window.localStorage.getItem(QA_KEY) === '1';
+  } catch (_) {
+    window.__HDP_INTERNAL_QA__ = qaFlag === '1' || source === 'hdp_internal' || medium === 'qa';
+  }
+})();
+
+function hdpTrackEvent(eventName, params) {
+  if (!eventName || typeof window.gtag !== 'function') return;
+
+  const internalQa = window.__HDP_INTERNAL_QA__ === true;
+  const emittedName = internalQa ? `internal_qa_${eventName}` : eventName;
+
+  window.gtag('event', emittedName, {
+    ...(params || {}),
+    hdp_traffic_class: internalQa ? 'internal_qa' : 'unclassified'
+  });
+}
+
 document.addEventListener('click', function (event) {
   const link = event.target.closest('a[href]');
   if (!link || typeof window.gtag !== 'function') return;
@@ -38,7 +69,7 @@ document.addEventListener('click', function (event) {
     params.transport_fleet_stage = document.getElementById('fleet')?.value || '';
   }
 
-  window.gtag('event', eventName, params);
+  hdpTrackEvent(eventName, params);
 });
 
 (function () {
@@ -49,7 +80,7 @@ document.addEventListener('click', function (event) {
   const markStarted = function () {
     if (started || typeof window.gtag !== 'function') return;
     started = true;
-    window.gtag('event', 'intake_started', {
+    hdpTrackEvent('intake_started', {
       page_location: window.location.href
     });
   };
@@ -59,7 +90,7 @@ document.addEventListener('click', function (event) {
 
   form.addEventListener('submit', function () {
     if (typeof window.gtag !== 'function') return;
-    window.gtag('event', 'route_built', {
+    hdpTrackEvent('route_built', {
       transport_role: document.getElementById('role')?.value || '',
       transport_need: document.getElementById('need')?.value || '',
       transport_fleet_stage: document.getElementById('fleet')?.value || '',
