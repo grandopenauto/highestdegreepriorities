@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" role="img" aria-labelledby="title desc">
+<title id="title">Rocky the Music Bear</title>
+<desc id="desc">A stylized PBK bear with pink and blue hair playing a black electric guitar on a neon stage.</desc>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="35%" r="80%"><stop offset="0" stop-color="#433a69"/><stop offset=".42" stop-color="#211b39"/><stop offset="1" stop-color="#08070e"/></radialGradient>
+  <linearGradient id="hair" x1="0" x2="1"><stop stop-color="#ff4fd8"/><stop offset=".5" stop-color="#a75cff"/><stop offset="1" stop-color="#38cfff"/></linearGradient>
+  <linearGradient id="shoe" x1="0" x2="1"><stop stop-color="#42e9ff"/><stop offset=".35" stop-color="#ff4fd8"/><stop offset=".7" stop-color="#ffe66e"/><stop offset="1" stop-color="#7b61ff"/></linearGradient>
+  <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d59a63"/><stop offset=".5" stop-color="#b77747"/><stop offset="1" stop-color="#8a5331"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="800" height="1100" fill="url(#bg)"/>
+<g opacity=".55" filter="url(#glow)">
+  <circle cx="120" cy="180" r="80" fill="#ff4fd8"/><circle cx="670" cy="230" r="92" fill="#38cfff"/><circle cx="400" cy="140" r="75" fill="#ffe66e"/>
+</g>
+<g fill="#fff" opacity=".75">
+  <circle cx="85" cy="300" r="5"/><circle cx="190" cy="150" r="4"/><circle cx="610" cy="110" r="4"/><circle cx="720" cy="370" r="5"/><circle cx="280" cy="255" r="3"/><circle cx="520" cy="330" r="3"/>
+</g>
+<circle cx="220" cy="290" r="112" fill="url(#fur)"/><circle cx="580" cy="290" r="112" fill="url(#fur)"/>
+<circle cx="220" cy="290" r="63" fill="#7a482d"/><circle cx="580" cy="290" r="63" fill="#7a482d"/>
+<ellipse cx="400" cy="390" rx="245" ry="230" fill="url(#fur)"/>
+<path d="M242 226 C270 100 340 104 365 205 C380 95 455 80 458 210 C500 102 570 143 541 254 C474 226 321 222 242 226Z" fill="url(#hair)"/>
+<path d="M277 210 C323 136 330 137 341 223 M397 205 C421 118 447 115 445 226 M478 217 C514 155 537 164 523 240" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="10" stroke-linecap="round"/>
+<ellipse cx="327" cy="372" rx="43" ry="52" fill="#fff"/><ellipse cx="473" cy="372" rx="43" ry="52" fill="#fff"/>
+<circle cx="337" cy="383" r="24" fill="#19131d"/><circle cx="463" cy="383" r="24" fill="#19131d"/>
+<circle cx="345" cy="373" r="7" fill="#fff"/><circle cx="471" cy="373" r="7" fill="#fff"/>
+<rect x="255" y="422" width="112" height="27" rx="13" fill="#111018" transform="rotate(7 311 436)"/>
+<rect x="433" y="422" width="112" height="27" rx="13" fill="#111018" transform="rotate(-7 489 436)"/>
+<ellipse cx="400" cy="470" rx="94" ry="72" fill="#e7b181"/>
+<path d="M372 448 Q400 420 428 448 Q420 478 400 482 Q380 478 372 448Z" fill="#211820"/>
+<path d="M400 483 Q382 503 363 497 M400 483 Q418 503 437 497" fill="none" stroke="#3d251b" stroke-width="7" stroke-linecap="round"/>
+<path d="M250 560 Q400 510 550 560 L594 860 Q400 920 206 860Z" fill="#111218"/>
+<path d="M252 575 L218 585 L270 820" stroke="#f3f3f3" stroke-width="18"/><path d="M548 575 L582 585 L530 820" stroke="#f3f3f3" stroke-width="18"/>
+<text x="400" y="665" text-anchor="middle" fill="#fff" font-family="Arial Black, sans-serif" font-size="62">PBK</text>
+<ellipse cx="208" cy="675" rx="85" ry="150" fill="url(#fur)" transform="rotate(20 208 675)"/>
+<ellipse cx="595" cy="650" rx="78" ry="145" fill="url(#fur)" transform="rotate(-24 595 650)"/>
+<path d="M355 750 L682 540" stroke="#17171d" stroke-width="48" stroke-linecap="round"/>
+<path d="M374 740 L688 538" stroke="#d6d5dc" stroke-width="4"/>
+<g stroke="#6f6a73" stroke-width="5"><path d="M450 688 l20 31"/><path d="M500 656 l20 31"/><path d="M550 624 l20 31"/><path d="M600 592 l20 31"/></g>
+<path d="M248 775 C190 720 204 647 276 639 C316 634 339 655 361 682 C387 646 435 638 471 666 C520 705 491 786 445 810 C390 840 312 831 248 775Z" fill="#08090d" stroke="#e4dcb5" stroke-width="7"/>
+<ellipse cx="365" cy="732" rx="48" ry="74" fill="#13141b" stroke="#777" stroke-width="3"/>
+<rect x="331" y="703" width="88" height="11" rx="5" fill="#d9d9d9"/><rect x="328" y="748" width="88" height="11" rx="5" fill="#d9d9d9"/>
+<circle cx="462" cy="774" r="12" fill="#d4b86d"/><circle cx="435" cy="797" r="10" fill="#d4b86d"/>
+<path d="M258 840 Q330 900 387 864 L360 1040 L220 1040Z" fill="#27242e"/><path d="M542 840 Q470 900 413 864 L440 1040 L580 1040Z" fill="#27242e"/>
+<g stroke="#413b49" stroke-width="7"><path d="M280 875 l-20 145"/><path d="M520 875 l20 145"/></g>
+<path d="M180 1008 Q268 980 354 1014 L335 1072 H158 Q145 1040 180 1008Z" fill="#101016" stroke="url(#shoe)" stroke-width="13"/>
+<path d="M620 1008 Q532 980 446 1014 L465 1072 H642 Q655 1040 620 1008Z" fill="#101016" stroke="url(#shoe)" stroke-width="13"/>
+<g fill="#d5d6dd"><path d="M170 1017 l14-28 14 28z"/><path d="M205 1008 l14-28 14 28z"/><path d="M630 1017 l-14-28 -14 28z"/><path d="M595 1008 l-14-28 -14 28z"/></g>
+<rect y="1030" width="800" height="70" fill="#fff" opacity=".04"/>
+</svg>
