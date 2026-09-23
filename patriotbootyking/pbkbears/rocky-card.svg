@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 980" role="img" aria-labelledby="title desc">
+<title id="title">PBK Bears Rocky Holo Rare card</title>
+<desc id="desc">A holographic-style trading card mockup featuring Rocky the Music Bear.</desc>
+<defs>
+ <linearGradient id="foil" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#54e9ff"/><stop offset=".22" stop-color="#ff64d8"/><stop offset=".44" stop-color="#ffe96e"/><stop offset=".68" stop-color="#8f6cff"/><stop offset=".88" stop-color="#6affc4"/><stop offset="1" stop-color="#fff"/></linearGradient>
+ <radialGradient id="stage" cx="50%" cy="38%" r="70%"><stop stop-color="#41345f"/><stop offset=".55" stop-color="#141224"/><stop offset="1" stop-color="#07070d"/></radialGradient>
+ <linearGradient id="fur" x1="0" x2="1"><stop stop-color="#d49962"/><stop offset="1" stop-color="#8a5331"/></linearGradient>
+ <linearGradient id="hair" x1="0" x2="1"><stop stop-color="#ff4fd8"/><stop offset=".5" stop-color="#a75cff"/><stop offset="1" stop-color="#38cfff"/></linearGradient>
+</defs>
+<rect x="4" y="4" width="692" height="972" rx="40" fill="url(#foil)"/>
+<rect x="20" y="20" width="660" height="940" rx="32" fill="#09090f"/>
+<rect x="38" y="92" width="624" height="664" rx="22" fill="url(#stage)" stroke="url(#foil)" stroke-width="5"/>
+<text x="54" y="70" fill="url(#foil)" font-size="58" font-family="Arial Black, sans-serif" font-weight="900">PBK BEARS</text>
+<text x="617" y="68" text-anchor="end" fill="#fff" font-size="24" font-family="Arial, sans-serif" font-weight="700">#001</text>
+<g transform="translate(65 120) scale(.75)">
+  <circle cx="220" cy="220" r="96" fill="url(#fur)"/><circle cx="580" cy="220" r="96" fill="url(#fur)"/>
+  <ellipse cx="400" cy="330" rx="235" ry="215" fill="url(#fur)"/>
+  <path d="M240 170 C280 65 335 92 360 184 C390 64 455 64 456 186 C500 88 555 125 530 205 C465 177 318 174 240 170Z" fill="url(#hair)"/>
+  <ellipse cx="326" cy="315" rx="40" ry="47" fill="#fff"/><ellipse cx="474" cy="315" rx="40" ry="47" fill="#fff"/>
+  <circle cx="336" cy="324" r="22" fill="#19131d"/><circle cx="464" cy="324" r="22" fill="#19131d"/>
+  <rect x="255" y="360" width="110" height="25" rx="12" fill="#111018" transform="rotate(7 310 372)"/><rect x="435" y="360" width="110" height="25" rx="12" fill="#111018" transform="rotate(-7 490 372)"/>
+  <ellipse cx="400" cy="405" rx="88" ry="65" fill="#e7b181"/><path d="M372 387 Q400 360 428 387 Q420 417 400 420 Q380 417 372 387Z" fill="#211820"/>
+  <path d="M250 495 Q400 450 550 495 L585 750 Q400 805 215 750Z" fill="#111218"/>
+  <text x="400" y="590" text-anchor="middle" fill="#fff" font-family="Arial Black" font-size="60">PBK</text>
+  <ellipse cx="230" cy="610" rx="70" ry="125" fill="url(#fur)" transform="rotate(20 230 610)"/><ellipse cx="575" cy="585" rx="68" ry="120" fill="url(#fur)" transform="rotate(-24 575 585)"/>
+  <path d="M335 675 L695 460" stroke="#17171d" stroke-width="44" stroke-linecap="round"/>
+  <path d="M250 705 C192 654 209 588 278 580 C316 577 340 596 360 622 C386 590 430 584 465 609 C512 644 488 719 444 743 C390 772 315 765 250 705Z" fill="#08090d" stroke="#e6d9a4" stroke-width="6"/>
+  <rect x="325" y="650" width="90" height="10" fill="#ddd"/><rect x="325" y="687" width="90" height="10" fill="#ddd"/>
+</g>
+<g fill="#fff"><circle cx="92" cy="130" r="4"/><circle cx="620" cy="148" r="5"/><circle cx="578" cy="250" r="3"/><circle cx="140" cy="390" r="3"/><circle cx="611" cy="535" r="4"/></g>
+<g stroke="url(#foil)" stroke-width="4" opacity=".8"><path d="M105 205 h32 M121 189 v32"/><path d="M590 360 h36 M608 342 v36"/><path d="M160 630 h34 M177 613 v34"/></g>
+<text x="58" y="803" fill="#fff" font-family="Arial Black, sans-serif" font-size="54" font-weight="900">ROCKY</text>
+<text x="60" y="842" fill="#d7d1de" font-family="Arial, sans-serif" font-size="25" font-style="italic">THE MUSIC BEAR</text>
+<g font-family="Arial, sans-serif" font-weight="700" font-size="18" fill="#fff">
+ <rect x="430" y="786" width="205" height="42" rx="9" fill="#17151f" stroke="#ffffff22"/><text x="447" y="813">STYLE</text><text x="610" y="813" text-anchor="end" fill="#ffe66e">100</text>
+ <rect x="430" y="836" width="205" height="42" rx="9" fill="#17151f" stroke="#ffffff22"/><text x="447" y="863">CREATIVITY</text><text x="610" y="863" text-anchor="end" fill="#54e9ff">98</text>
+</g>
+<line x1="58" y1="894" x2="642" y2="894" stroke="url(#foil)" stroke-width="3"/>
+<text x="60" y="928" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">HOLO RARE • SERIES 1</text>
+<text x="638" y="928" text-anchor="end" fill="#ffe66e" font-family="Arial Black, sans-serif" font-size="24">01/100</text>
+</svg>
