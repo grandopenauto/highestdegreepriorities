@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 820" role="img" aria-labelledby="title desc">
+  <title id="title">Rocky music player phone mockup</title>
+  <desc id="desc">Mobile player screen for Rocky scan-to-hear experience.</desc>
+  <defs>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4c3a79"/><stop offset="0.45" stop-color="#1e1636"/><stop offset="1" stop-color="#0c0d18"/></linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffe27d"/><stop offset="0.55" stop-color="#ff61d8"/><stop offset="1" stop-color="#53e8ff"/></linearGradient>
+  </defs>
+  <rect x="18" y="12" width="384" height="796" rx="46" fill="#1f1f2b"/>
+  <rect x="38" y="42" width="344" height="736" rx="34" fill="#0d0d16"/>
+  <rect x="150" y="26" width="120" height="18" rx="9" fill="#2f3142"/>
+  <rect x="80" y="98" width="260" height="260" rx="18" fill="url(#cover)"/>
+  <circle cx="210" cy="202" r="78" fill="#bb834f"/>
+  <circle cx="154" cy="168" r="34" fill="#bb834f"/><circle cx="266" cy="168" r="34" fill="#bb834f"/>
+  <ellipse cx="182" cy="204" rx="18" ry="24" fill="#fff"/><ellipse cx="238" cy="204" rx="18" ry="24" fill="#fff"/>
+  <circle cx="187" cy="208" r="10" fill="#111"/><circle cx="233" cy="208" r="10" fill="#111"/>
+  <path d="M190 247 q20 18 40 0" stroke="#2a1a18" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="76" y="420" fill="#fff" font-family="Arial Black, sans-serif" font-size="46">Rocky</text>
+  <text x="76" y="458" fill="#b8b1c4" font-family="Arial, sans-serif" font-size="24">Good vibes. Bigger plans.</text>
+  <line x1="78" y1="520" x2="340" y2="520" stroke="#2e3043" stroke-width="8" stroke-linecap="round"/>
+  <line x1="78" y1="520" x2="232" y2="520" stroke="url(#bar)" stroke-width="8" stroke-linecap="round"/>
+  <text x="72" y="560" fill="#8c8798" font-family="Arial, sans-serif" font-size="18">0:00</text>
+  <text x="334" y="560" text-anchor="end" fill="#8c8798" font-family="Arial, sans-serif" font-size="18">-2:34</text>
+  <circle cx="210" cy="644" r="64" fill="#fff"/>
+  <polygon points="196,612 196,676 250,644" fill="#0d0d16"/>
+  <path d="M90 652 h24" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+  <path d="M306 652 h24" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+</svg>
