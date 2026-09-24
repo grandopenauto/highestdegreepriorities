@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 980" role="img" aria-labelledby="title desc">
+  <title id="title">Rocky back card</title>
+  <desc id="desc">PBK Bears Rocky card back with QR placeholder and music unlock messaging.</desc>
+  <defs>
+    <linearGradient id="foil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#54e8ff"/>
+      <stop offset="0.28" stop-color="#ff5ed8"/>
+      <stop offset="0.52" stop-color="#ffe077"/>
+      <stop offset="0.76" stop-color="#8f6cff"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#17142a"/>
+      <stop offset="1" stop-color="#090912"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="688" height="968" rx="40" fill="url(#foil)"/>
+  <rect x="24" y="24" width="652" height="932" rx="30" fill="url(#bg)"/>
+  <text x="350" y="120" text-anchor="middle" fill="url(#foil)" font-family="Arial Black, sans-serif" font-size="82">PBK</text>
+  <text x="350" y="195" text-anchor="middle" fill="#fff" font-family="Arial Black, sans-serif" font-size="72">BEARS</text>
+  <text x="350" y="252" text-anchor="middle" fill="#ffd86d" font-family="Arial, sans-serif" font-size="22" letter-spacing="6" font-weight="700">ROCKY • THE MUSIC BEAR</text>
+  <text x="350" y="350" text-anchor="middle" fill="#ffffff" font-family="Arial Black, sans-serif" font-size="48">Music isn't just what I do —</text>
+  <text x="350" y="406" text-anchor="middle" fill="#ffffff" font-family="Arial Black, sans-serif" font-size="48">it's how I make the world</text>
+  <text x="350" y="462" text-anchor="middle" fill="#ffffff" font-family="Arial Black, sans-serif" font-size="48">brighter.</text>
+  <g transform="translate(185 540)">
+    <rect width="180" height="180" rx="10" fill="#fff"/>
+    <g fill="#090912">
+      <rect x="18" y="18" width="48" height="48"/>
+      <rect x="114" y="18" width="48" height="48"/>
+      <rect x="18" y="114" width="48" height="48"/>
+      <rect x="84" y="84" width="12" height="12"/><rect x="108" y="84" width="12" height="12"/><rect x="132" y="84" width="12" height="12"/>
+      <rect x="84" y="108" width="12" height="12"/><rect x="132" y="108" width="12" height="12"/>
+      <rect x="84" y="132" width="12" height="12"/><rect x="108" y="132" width="12" height="12"/><rect x="132" y="132" width="12" height="12"/>
+      <rect x="30" y="30" width="24" height="24" fill="#fff"/><rect x="126" y="30" width="24" height="24" fill="#fff"/><rect x="30" y="126" width="24" height="24" fill="#fff"/>
+    </g>
+  </g>
+  <text x="455" y="624" fill="#ffffff" font-family="Arial Black, sans-serif" font-size="26">SCAN TO HEAR MY MUSIC</text>
+  <g transform="translate(452 680)" fill="none" stroke="url(#foil)" stroke-width="10" stroke-linecap="round">
+    <path d="M0 22 h0"/>
+    <path d="M24 10 v24"/>
+    <path d="M48 0 v44"/>
+    <path d="M72 14 v18"/>
+    <path d="M96 6 v30"/>
+    <path d="M120 16 v12"/>
+  </g>
+  <text x="350" y="845" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="28" font-weight="700">COLLECT • BELIEVE • MORE</text>
+  <text x="350" y="900" text-anchor="middle" fill="#b8b1c4" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">PBKBEARS.COM</text>
+</svg>
