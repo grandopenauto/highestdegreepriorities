@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Estimate system hops, manual handoffs, re-keying, exceptions and ownership gaps across RIA or family-office workflows before adding more automation.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="RIA Workflow Integration Friction Calculator | Wealth Operations">
+  <meta property="og:description" content="Estimate system hops, manual handoffs, re-keying, exceptions and ownership gaps across RIA or family-office workflows before adding more automation.">
+  <title>RIA Workflow Integration Friction Calculator | Wealth Operations</title>
+  <link rel="canonical" href="https://www.highestdegreepriorities.com/ria-workflow-integration-friction-calculator/">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Wealth Operations Integration Friction Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","description":"A transparent workflow diagnostic for RIA and family-office operating friction.","provider":{"@type":"Organization","name":"Highest Degree Priorities","url":"https://www.highestdegreepriorities.com/"},"url":"https://www.highestdegreepriorities.com/ria-workflow-integration-friction-calculator/"}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZD9GMMZ36"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-2ZD9GMMZ36');</script>
+</head>
+<body>
+<a class="skip-link" href="#calculator">Skip to calculator</a>
+<header class="site-header"><nav class="nav shell" aria-label="Primary navigation"><a class="brand" href="/">Highest Degree Priorities</a><div class="nav-links"><a href="#calculator">Calculator</a><a href="#method">Method</a><a href="#interpretation">Interpretation</a><a class="button" href="https://www.highestdegreepriorities.com/businessassessment/" data-hdp-cta>Assess the workflow</a></div></nav></header>
+<main>
+<section class="hero shell">
+  <div><p class="eyebrow">Wealth operations diagnostic</p><h1>Find the friction between the systems.</h1><p class="lede">Model one RIA or family-office workflow using your own operating inputs. The calculator measures structural integration friction—system hops, handoffs, re-keying, exceptions and ownership gaps—without inventing ROI or savings.</p><div class="actions"><a class="button" href="#calculator">Run the diagnostic</a><a class="button secondary" href="#method">See the formula</a></div></div>
+  <aside class="hero-card"><span>What this is</span><strong>0–100</strong><p>A transparent structural-friction score for comparing workflows. It is not a benchmark, valuation, ROI estimate or recommendation to automate professional judgment.</p></aside>
+</section>
+<section class="section shell" id="calculator">
+  <div class="section-head"><p class="eyebrow">Calculator</p><h2>Describe one workflow.</h2><p class="lede">No form is submitted. Calculations run in your browser. Analytics records only that the calculator was used—not the values you enter.</p></div>
+  <div class="calculator-layout">
+    <form id="friction-form" class="calculator-card" novalidate>
+      <div class="field-grid">
+        <label class="span-2"><span>Workflow name</span><input id="workflow-name" name="workflow_name" maxlength="80" placeholder="e.g., Client onboarding" autocomplete="off"></label>
+        <label><span>Workflow type</span><select id="workflow-type"><option>Client onboarding / account opening</option><option>Meeting prep & follow-up</option><option>Service requests</option><option>Reporting / reconciliation</option><option>Document / tax / entity administration</option><option>Transfers / capital calls / alternatives</option><option>Other recurring workflow</option></select></label>
+        <label><span>Monthly cases</span><input id="volume" type="number" min="0" max="1000000" step="1" value="100" inputmode="numeric" required></label>
+        <label><span>Systems touched per case</span><input id="systems" type="number" min="1" max="50" step="1" value="4" inputmode="numeric" required><small>CRM, custodian, planning, reporting, document systems, spreadsheets, portals, etc.</small></label>
+        <label><span>Manual handoffs per case</span><input id="handoffs" type="number" min="0" max="50" step="1" value="2" inputmode="numeric" required><small>Transfers of responsibility or status between people/teams.</small></label>
+        <label><span>Re-key / duplicate-entry steps</span><input id="rekey" type="number" min="0" max="50" step="1" value="1" inputmode="numeric" required></label>
+        <label><span>Cases with an exception</span><div class="input-suffix"><input id="exceptions" type="number" min="0" max="100" step="0.1" value="10" inputmode="decimal" required><b>%</b></div></label>
+        <label><span>Manual minutes per case</span><input id="minutes" type="number" min="0" max="1440" step="0.1" value="12" inputmode="decimal" required></label>
+        <label><span>Workflow ownership</span><select id="ownership"><option value="clear">Clear owner</option><option value="shared">Shared ownership</option><option value="unclear">Unclear / changes by case</option></select></label>
+        <fieldset class="span-2"><legend>Does the workflow contain judgment that should remain with qualified professionals?</legend><div class="radio-row"><label><input type="radio" name="judgment" value="yes" checked> Yes</label><label><input type="radio" name="judgment" value="no"> No / primarily administrative</label></div></fieldset>
+      </div>
+      <p id="form-error" class="form-error" role="alert" aria-live="polite"></p>
+      <div class="actions"><button class="button" type="submit">Calculate friction</button><button class="button secondary" id="reset-btn" type="button">Reset</button></div>
+    </form>
+    <aside id="results" class="results-card" aria-live="polite" aria-labelledby="result-title">
+      <p class="eyebrow">Result</p><h2 id="result-title">Enter your workflow.</h2><div class="score-wrap"><div class="score-ring" id="score-ring"><span id="score-value">—</span><small>/100</small></div><div><strong id="score-band">Not calculated</strong><p id="score-summary">Your result will appear here.</p></div></div>
+      <div class="metric-grid"><div><span>System hops / month</span><strong id="m-hops">—</strong></div><div><span>Handoff touches / month</span><strong id="m-handoffs">—</strong></div><div><span>Re-key events / month</span><strong id="m-rekey">—</strong></div><div><span>Expected exceptions / month</span><strong id="m-exceptions">—</strong></div><div><span>Manual hours / month</span><strong id="m-hours">—</strong></div><div><span>Friction-weighted hours</span><strong id="m-weighted">—</strong></div></div>
+      <div class="recommendation"><span>Dominant friction factor</span><strong id="dominant">—</strong><p id="recommendation-text">—</p><p id="judgment-boundary" class="boundary"></p></div>
+      <button id="save-comparison" class="button secondary full" type="button" disabled>Save to comparison</button>
+    </aside>
+  </div>
+  <div id="comparison-panel" class="comparison-card" hidden><div class="comparison-head"><div><p class="eyebrow">Compare workflows</p><h2>Structural friction side by side.</h2></div><button id="clear-comparison" class="text-button" type="button">Clear comparison</button></div><div class="table-wrap"><table><thead><tr><th>Workflow</th><th>Score</th><th>Manual hrs/mo</th><th>Weighted hrs</th><th>Dominant factor</th><th>Judgment boundary</th></tr></thead><tbody id="comparison-body"></tbody></table></div><p class="fine-print">Comparison rows exist only in this browser page session and are not submitted.</p></div>
+</section>
+<section class="section shell" id="method"><p class="eyebrow">Transparent method</p><h2>How the score works.</h2><p class="lede">The score is a prioritization aid built from the conditions you enter. It deliberately avoids unsupported industry benchmarks.</p><div class="formula-grid"><article class="card"><strong>25 points</strong><h3>Systems</h3><p>0 points at one system, rising linearly to 25 points at six or more systems touched.</p></article><article class="card"><strong>20 points</strong><h3>Handoffs</h3><p>4 points per manual handoff, capped at five handoffs.</p></article><article class="card"><strong>20 points</strong><h3>Re-keying</h3><p>5 points per duplicate-entry step, capped at four steps.</p></article><article class="card"><strong>20 points</strong><h3>Exceptions</h3><p>Exception rate contributes linearly from 0 to 20 points, capped at a 30% exception rate.</p></article><article class="card"><strong>15 points</strong><h3>Ownership</h3><p>Clear owner: 0. Shared: 7.5. Unclear or case-dependent: 15.</p></article></div><div class="method-note"><strong>Human judgment is not scored as friction.</strong><p>If judgment is critical, the calculator adds an operating boundary: automate preparation, routing, reconciliation and evidence where appropriate, while keeping professional review/approval with the responsible person.</p></div>
+</section>
+<section class="section shell" id="interpretation"><p class="eyebrow">Interpretation</p><h2>Use the score to choose where to investigate—not to justify automation by itself.</h2><div class="grid"><article class="card"><h3>0–24 · Low</h3><p>Relatively simple structure. Improve only where actual delays, errors or cost justify it.</p></article><article class="card"><h3>25–49 · Moderate</h3><p>Some integration friction. Inspect the dominant factor before adding another system.</p></article><article class="card"><h3>50–74 · High</h3><p>Multiple structural burdens are interacting. Map the workflow, ownership and exception path before automating more.</p></article><article class="card"><h3>75–100 · Very high</h3><p>The workflow is structurally complex. Treat architecture and operating design as the first problem, not tool selection.</p></article></div></section>
+<section class="section shell"><div class="contact-panel"><div><p class="eyebrow">Next step</p><h2>Want to map the actual workflow?</h2><p class="lede">Use the result as a starting hypothesis. HDP can help document the current workflow, verify the real bottleneck and determine whether integration, operating redesign, automation—or no change—is warranted.</p></div><div class="actions"><a class="button" href="https://www.highestdegreepriorities.com/businessassessment/" data-hdp-cta>Assess the workflow</a><a class="button secondary" href="/">Back to HDP</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="shell">© <span id="year"></span> Highest Degree Priorities. <a href="/privacy.html">Privacy</a></div></footer>
+<script src="assets/app.js"></script>
+</body></html>
