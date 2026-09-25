@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hdp.research-fanout/research/v0.2",
+  "title": "HDP Canonical Research Object",
+  "type": "object",
+  "required": ["topic", "problem"],
+  "properties": {
+    "research_id": {"type": "string"},
+    "topic": {"type": "string", "minLength": 1},
+    "problem": {"type": "string", "minLength": 1},
+    "evidence": {"type": "array"},
+    "affected_buyers": {"type": "array", "items": {"type": "string"}},
+    "search_signals": {"type": "array"},
+    "commercial_signals": {"type": "array"},
+    "source_campaigns": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "ccao_input": {"type": "object"},
+    "private_entities": {
+      "type": "array",
+      "description": "Private/prospect-specific entity context. It is operational input only and is not copied into public draft scaffolds by default."
+    }
+  },
+  "additionalProperties": true
+}
