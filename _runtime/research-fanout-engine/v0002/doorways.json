@@ -1,0 +1,54 @@
+[
+  {
+    "doorway_id": "hdp-core",
+    "name": "Highest Degree Priorities",
+    "kind": "site",
+    "buyer": "business owners and operators",
+    "perspective": "operational economics, durable value, reliability, customer acquisition and business outcomes",
+    "keywords": ["business", "operations", "cost", "revenue", "reliability", "customer", "lead", "sales", "workflow", "automation"],
+    "base_priority": 5,
+    "allowed_asset_types": ["guide", "assessment", "calculator", "article", "checklist", "comparison", "template"],
+    "commercial_destination": "https://www.highestdegreepriorities.com/",
+    "cta_hypothesis": "Offer the next useful business or workflow assessment.",
+    "publisher": {"type": "github_static", "repo": "grandopenauto/highestdegreepriorities", "content_root": "insights", "auto_publish": false}
+  },
+  {
+    "doorway_id": "esf",
+    "name": "Enterprise Systems Factory",
+    "kind": "site",
+    "buyer": "COO, CIO, Head of AI, founder, operations leader",
+    "perspective": "system architecture, workflow ownership, redundancy, integration, operation and governance",
+    "keywords": ["agent", "automation", "workflow", "system", "integration", "api", "redundant", "overlap", "operate", "governance"],
+    "base_priority": 6,
+    "allowed_asset_types": ["assessment", "guide", "comparison", "article", "checklist", "calculator", "template"],
+    "commercial_destination": "https://enterprisesystemsfactory.com/",
+    "cta_hypothesis": "Offer an Agent Estate / Workflow Audit or build-and-operate conversation.",
+    "publisher": {"type": "github_static", "repo": "grandopenauto/enterprisesystemsfactory", "content_root": "insights", "auto_publish": false}
+  },
+  {
+    "doorway_id": "vmi",
+    "name": "Virtual Market Insight",
+    "kind": "site",
+    "buyer": "operators, analysts, investors and market researchers",
+    "perspective": "market evidence, demand signals, competitive structure, changes and implications",
+    "keywords": ["market", "demand", "trend", "industry", "competitor", "evidence", "signal", "search", "growth", "pricing"],
+    "base_priority": 5,
+    "allowed_asset_types": ["dataset", "research_brief", "guide", "comparison", "article", "assessment"],
+    "commercial_destination": "https://virtualmarketinsight.com/",
+    "cta_hypothesis": "Offer deeper market evidence, monitoring or decision support.",
+    "publisher": {"type": "github_static", "repo": "grandopenauto/virtualmarketinsight", "content_root": "research", "auto_publish": false}
+  },
+  {
+    "doorway_id": "outreach",
+    "name": "Research-Based Outreach",
+    "kind": "distribution",
+    "buyer": "researched prospects for whom the underlying issue is materially relevant",
+    "perspective": "turn prospect research into a genuinely useful resource and a softer second acquisition path",
+    "keywords": ["prospect", "company", "buyer", "reply", "outreach", "email", "linkedin", "trigger", "research", "follow-up"],
+    "base_priority": 4,
+    "allowed_asset_types": ["resource_followup", "research_note", "linkedin_post", "email_followup"],
+    "commercial_destination": "relevant staged outreach queue",
+    "cta_hypothesis": "Share the useful resource because it is relevant; do not manufacture content merely as an excuse to contact someone.",
+    "publisher": {"type": "staged_distribution", "target": "EmailAgent/LinkedInAgent", "auto_publish": false}
+  }
+]
