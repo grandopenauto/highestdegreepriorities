@@ -1,0 +1,30 @@
+[
+  {
+    "adapter_id": "oie",
+    "name": "Opportunity Intelligence Engine",
+    "mode": "advisory",
+    "health_url": "http://127.0.0.1:3197/health",
+    "invocation_enabled": false
+  },
+  {
+    "adapter_id": "seoagent",
+    "name": "SEO Agent v8",
+    "mode": "advisory",
+    "health_url": "http://127.0.0.1:3077/health",
+    "invocation_enabled": false
+  },
+  {
+    "adapter_id": "webdevagent",
+    "name": "WebDev Agent",
+    "mode": "staging",
+    "health_url": "http://127.0.0.1:3077/health",
+    "invocation_enabled": false
+  },
+  {
+    "adapter_id": "github",
+    "name": "GitHub Publisher",
+    "mode": "publisher",
+    "health_url": null,
+    "invocation_enabled": false
+  }
+]
