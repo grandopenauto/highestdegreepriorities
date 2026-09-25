@@ -1,0 +1,53 @@
+[
+  {
+    "doorway_id": "esf",
+    "name": "Enterprise Systems Factory",
+    "buyer": "COO, CIO, Head of AI, founder, operations leader",
+    "perspective": "system architecture, workflow ownership, redundancy, integration, operation and governance",
+    "keywords": ["agent", "automation", "workflow", "system", "integration", "api", "redundant", "overlap", "operate", "governance"],
+    "base_priority": 6,
+    "allowed_asset_types": ["assessment", "guide", "comparison", "article", "checklist", "calculator"],
+    "commercial_destination": "https://enterprisesystemsfactory.com/",
+    "cta_hypothesis": "Offer an Agent Estate / Workflow Audit or a build-and-operate conversation.",
+    "publisher": {
+      "type": "github_static",
+      "target": "enterprisesystemsfactory.com",
+      "repo": "grandopenauto/enterprisesystemsfactory",
+      "auto_publish": false
+    }
+  },
+  {
+    "doorway_id": "hdp",
+    "name": "Highest Degree Priorities",
+    "buyer": "business owners and operators",
+    "perspective": "operational economics, durable value, reliability, customer acquisition and business outcomes",
+    "keywords": ["business", "operations", "cost", "revenue", "reliability", "customer", "lead", "sales", "workflow", "automation"],
+    "base_priority": 5,
+    "allowed_asset_types": ["guide", "assessment", "calculator", "article", "checklist", "comparison"],
+    "commercial_destination": "https://www.highestdegreepriorities.com/",
+    "cta_hypothesis": "Offer the next useful business or workflow assessment.",
+    "publisher": {
+      "type": "github_static",
+      "target": "highestdegreepriorities.com",
+      "repo": "grandopenauto/highestdegreepriorities",
+      "auto_publish": false
+    }
+  },
+  {
+    "doorway_id": "vmi",
+    "name": "Virtual Market Insight",
+    "buyer": "operators, analysts, investors and market researchers",
+    "perspective": "market evidence, demand signals, competitive structure, changes and implications",
+    "keywords": ["market", "demand", "trend", "industry", "competitor", "evidence", "signal", "search", "growth", "pricing"],
+    "base_priority": 5,
+    "allowed_asset_types": ["dataset", "guide", "comparison", "article", "assessment"],
+    "commercial_destination": "https://virtualmarketinsight.com/",
+    "cta_hypothesis": "Offer deeper market evidence, monitoring or decision support.",
+    "publisher": {
+      "type": "github_static",
+      "target": "virtualmarketinsight.com",
+      "repo": "grandopenauto/virtualmarketinsight",
+      "auto_publish": false
+    }
+  }
+]
