@@ -1,0 +1,49 @@
+[
+  {
+    "adapter_id": "oie",
+    "name": "Opportunity Intelligence Engine",
+    "kind": "http_read_only",
+    "health_url": "http://127.0.0.1:3197/health",
+    "operations": {
+      "demand_status": {"method": "GET", "url": "http://127.0.0.1:3197/api/demand/status"},
+      "demand_matches": {"method": "GET", "url": "http://127.0.0.1:3197/api/demand/matches"},
+      "demand_acquisition": {"method": "GET", "url": "http://127.0.0.1:3197/api/demand/acquisition"},
+      "capabilities": {"method": "GET", "url": "http://127.0.0.1:3197/api/demand/capabilities"}
+    },
+    "automatic_mutations": false
+  },
+  {
+    "adapter_id": "ccao",
+    "name": "Chief Customer Acquisition Officer Gate",
+    "kind": "local_cli",
+    "path": "C:\\HDP\\CCAO\\ccao_gate.py",
+    "version": "0.1.0",
+    "operation": "evaluate JSON from stdin and return deterministic gate/disposition",
+    "automatic_external_actions": false
+  },
+  {
+    "adapter_id": "seoagent",
+    "name": "SEO Agent v8",
+    "kind": "http_local",
+    "health_url": "http://127.0.0.1:3077/health",
+    "contract_status": "route inspection pending",
+    "automatic_mutations": false
+  },
+  {
+    "adapter_id": "webdevagent",
+    "name": "WebDev Agent",
+    "kind": "http_local",
+    "health_url": "http://127.0.0.1:3077/health",
+    "build_url": "http://127.0.0.1:3077/api/v8/webdev/build",
+    "contract_status": "known staged build seam; payload validation pending",
+    "automatic_mutations": false
+  },
+  {
+    "adapter_id": "github",
+    "name": "GitHub Publisher",
+    "kind": "publisher",
+    "mode": "manifest-only",
+    "automatic_mutations": false,
+    "publish_enabled": false
+  }
+]
