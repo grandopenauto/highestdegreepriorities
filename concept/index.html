@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>HDP Homepage Concepts</title>
+  <style>
+    :root{--bg:#0b0d12;--panel:#141822;--ink:#f7f4ed;--muted:#aab1c0;--gold:#d3a146;--line:#252b39}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+    .wrap{width:min(1100px,calc(100% - 36px));margin:auto;padding:64px 0 80px}
+    .eyebrow{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    h1{font-size:clamp(42px,7vw,78px);letter-spacing:-.055em;line-height:.95;margin:14px 0 18px;max-width:900px}
+    .intro{font-size:20px;color:var(--muted);max-width:760px;margin-bottom:42px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(180deg,#171c27,#11151e);border:1px solid var(--line);border-radius:24px;padding:28px;display:flex;flex-direction:column;min-height:330px;text-decoration:none;color:inherit;transition:.2s ease}
+    .card:hover{transform:translateY(-5px);border-color:#5a647a}.num{font-size:12px;color:var(--gold);font-weight:800}.card h2{font-size:28px;letter-spacing:-.035em;margin:30px 0 12px}.card p{color:var(--muted);margin:0 0 26px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.tag{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:#d8dce5}.arrow{margin-top:22px;font-weight:800;color:var(--gold)}
+    .note{margin-top:32px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;color:var(--muted);background:#10131a}.note strong{color:var(--ink)}
+    @media(max-width:850px){.grid{grid-template-columns:1fr}.card{min-height:0}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="eyebrow">Highest Degree Priorities • Front Door Lab</div>
+    <h1>Three ways to introduce the same ecosystem.</h1>
+    <p class="intro">These concepts do not replace the live homepage. They test different answers to the question: <strong>why should someone enter HDP today?</strong></p>
+    <section class="grid">
+      <a class="card" href="/concept/001/">
+        <span class="num">CONCEPT 001</span>
+        <h2>The Network</h2>
+        <p>HDP as the place where people, businesses and AI systems connect around opportunities, work and transactions.</p>
+        <div class="tags"><span class="tag">Social</span><span class="tag">Marketplace</span><span class="tag">AI collaboration</span></div>
+        <div class="arrow">View concept →</div>
+      </a>
+      <a class="card" href="/concept/002/">
+        <span class="num">CONCEPT 002</span>
+        <h2>The Outcome Router</h2>
+        <p>Start with one question: what are you trying to get done? HDP routes the goal to the right systems, people and tools.</p>
+        <div class="tags"><span class="tag">Simple</span><span class="tag">Action-first</span><span class="tag">Operator</span></div>
+        <div class="arrow">View concept →</div>
+      </a>
+      <a class="card" href="/concept/003/">
+        <span class="num">CONCEPT 003</span>
+        <h2>The Super App</h2>
+        <p>One command center for business, AI, marketplace, opportunities, network, projects and transactions.</p>
+        <div class="tags"><span class="tag">Platform</span><span class="tag">Control plane</span><span class="tag">Everything connected</span></div>
+        <div class="arrow">View concept →</div>
+      </a>
+    </section>
+    <div class="note"><strong>Live homepage is unchanged.</strong> When a concept wins, the existing homepage can move to <code>/explore_hdp/</code> and the winning concept can be promoted to <code>/</code>.</div>
+  </main>
+</body>
+</html>
