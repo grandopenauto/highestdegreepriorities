@@ -20,7 +20,7 @@
     const featuredMode=mode==="featured";
     return '<article class="package-card" data-id="'+safe(p.id)+'">'+
       '<div class="package-foot"><span class="package-icon" aria-hidden="true">'+safe(p.icon)+'</span><span class="small-tag">'+safe(p.category)+'</span></div>'+
-      '<h3>'+safe(p.name)+'</h3><p>'+safe(p.pitch)+'</p>'+
+      '<h3>'+safe(p.name)+'</h3><p>'+safe(p.pitch)+'</p><span class="card-spec">Includes '+p.includes.length+' proposed components · Custom quote</span>'+
       (featuredMode?'<div class="package-foot"><span class="tiny-note">'+safe(p.stage)+'</span><button class="text-action" type="button" data-open="'+safe(p.id)+'">Quick details</button></div>':
       '<div class="card-actions"><button class="text-action" type="button" data-open="'+safe(p.id)+'">Quick details</button><button class="add" type="button" data-pick="'+safe(p.id)+'" aria-pressed="'+selected+'">'+(selected?'✓ Selected':'+ Add to mix')+'</button></div>')+
       '<a class="product-page-link" data-analytics="launchpad_product_click" href="/business/?package='+encodeURIComponent(p.id)+'">View full package &amp; configure →</a>'+
