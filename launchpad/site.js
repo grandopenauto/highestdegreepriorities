@@ -90,5 +90,16 @@
     category=btn.dataset.jumpCategory||"All";if(search)search.value="";
     refresh();document.getElementById("catalog")?.scrollIntoView({behavior:"smooth"});
   }));
+  // Front-door search uses the same filters as the full catalog.
+  document.getElementById("heroSearchForm")?.addEventListener("submit",function(e){
+    e.preventDefault();
+    const query=document.getElementById("heroSearch")?.value||"";
+    if(search)search.value=query;
+    category="All";
+    refresh();
+    track("launchpad_hero_search",{search_length:query.length});
+    document.getElementById("catalog")?.scrollIntoView({behavior:"smooth"});
+    search?.focus({preventScroll:true});
+  });
   refresh();
 })();
