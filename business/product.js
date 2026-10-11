@@ -20,7 +20,7 @@ for(const [id,value] of Object.entries({
   businessTitle:product.name,businessPitch:product.pitch,businessStage:product.stage,
   businessOutcome:product.outcome,visualName:product.name,summaryPackage:product.name
 }))g(id).textContent=value;
-g("systemList").innerHTML=modules.map(x=>"<li>"+escape(x)+"</li>").join("");
+g("systemList").innerHTML=modules.map(x=>"<li class=\"feature-row\"><strong>"+escape(x)+"</strong><span>"+escape(window.HDP_MODULE_DESCRIPTIONS?.[x]||"Include this component in the agreed scope.")+"</span></li>").join("");
 g("optionList").innerHTML=product.options.map(x=>"<li>"+escape(x)+"</li>").join("");
 function renderModules(){g("moduleChecks").innerHTML=modules.map((m,i)=>'<label class="module-check"><input type="checkbox" data-module="'+i+'" '+(selected.has(m)?"checked":"")+'> <span>'+escape(m)+"</span></label>").join("");}
 function draft(){
