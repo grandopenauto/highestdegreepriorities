@@ -81,3 +81,13 @@ a.id-special:hover{color:#172f55}
 /* Small-screen identity page navigation */
 .identity-mobile-link{display:none;color:#f2cf8d;text-decoration:none;font-size:13px;font-weight:850}
 @media(max-width:780px){.identity-mobile-link{display:inline-flex}.site-header .navlinks{display:none}}
+
+/* About > Founder: SI superscript infinity and linked centered SI∞IƧ signature */
+.about-founder-plate{display:flex;flex-direction:column}
+.about-founder-plate .founder-professional-title{font-size:15px;font-weight:800;line-height:1.45;color:#f2cf8d;margin:0 0 13px}
+.founder-sup-infinity{font-family:"Segoe UI Symbol","DejaVu Sans",Arial,sans-serif;font-size:.7em;vertical-align:super;line-height:0}
+.about-founder-plate .founder-si-mark{display:block;width:max-content;max-width:100%;margin:auto auto 0;padding-top:24px;color:#f2cf8d;text-align:center;font-family:"Segoe UI Symbol",Arial,sans-serif;font-size:clamp(30px,3.7vw,39px);font-weight:850;letter-spacing:-.065em;line-height:1.15;text-decoration:none;white-space:nowrap}
+.founder-si-mark .founder-si-flip{display:inline-block;transform:scaleX(-1);transform-origin:center center;font-family:Arial,Helvetica,sans-serif}
+.about-founder-plate .founder-si-mark:hover{color:#ffe4ad;text-decoration:underline;text-underline-offset:6px}
+.about-founder-plate .founder-si-mark:focus-visible{outline:3px solid #f2cf8d;outline-offset:5px;border-radius:4px}
+@media(max-width:600px){.about-founder-plate .founder-si-mark{font-size:35px}}
