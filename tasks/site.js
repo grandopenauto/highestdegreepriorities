@@ -54,6 +54,7 @@ function card(t){
  '<h3>'+safe(t.title)+'</h3><p>'+safe(t.summary)+'</p>'+
  '<span class="task-components">'+t.modules.length+' related HDP capabilities · '+related(t).length+' connected Business OS matches</span>'+
  '<div class="task-cta">'+openLink(t)+'<button type="button" data-open-detail="'+safe(t.id)+'">Details</button></div>'+
+ '<a class="task-product-link" data-configure-task="'+safe(t.id)+'" href="/task/?task='+encodeURIComponent(t.id)+'">Configure task &amp; export JSON →</a>'+
  '</article>';
 }
 function refresh(){
@@ -81,6 +82,7 @@ function showTask(id,changeHistory){
  '<h3>Business OS packages that use these capabilities</h3>'+
  (bos.length?'<div class="related-bos">'+bos.map(p=>'<a href="/business/?package='+encodeURIComponent(p.id)+'">'+safe(p.name)+' →</a>').join("")+'</div>':'<p>Ask HDP about a custom business package.</p>')+
  '<div class="dialog-actions">'+(external(t)?'<a class="btn navy" data-open-tool="'+safe(t.id)+'" href="'+safe(external(t))+'"'+linkAttrs(t)+'>'+safe(t.action)+' ↗</a>':'<a class="btn navy" data-request-task="'+safe(t.id)+'" href="'+safe(inquiry(t))+'">Request this single task ↗</a>')+
+ '<a class="btn light-button" data-configure-task="'+safe(t.id)+'" href="/task/?task='+encodeURIComponent(t.id)+'">Configure task →</a>'+
  '<button class="btn light-button" type="button" data-copy-brief="'+safe(t.id)+'">Copy task brief</button></div>'+
  '<p class="task-legal">A public link points to an existing page, not proof of completed service or paid activation. Planned services require availability, scope, and price confirmation. No payment or provisioning happens here.</p>'+
  '<button class="share-link" type="button" data-share-task="'+safe(t.id)+'">Copy link to this task</button>';
@@ -121,6 +123,7 @@ document.addEventListener("click",async e=>{
  if(e.target.closest("[data-close]")){closeTask();return;}
  const filter=e.target.closest("[data-category]");
  if(filter){category=filter.dataset.category;refresh();return;}
+ const config=e.target.closest("[data-configure-task]");if(config){track("task_configurator_entry",{task_id:config.dataset.configureTask});return;}
  const tool=e.target.closest("[data-open-tool]");
  if(tool){track("task_open_public_tool",{task_id:tool.dataset.openTool});return;}
  const request=e.target.closest("[data-request-task]");
