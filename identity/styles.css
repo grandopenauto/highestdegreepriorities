@@ -78,3 +78,6 @@ a.id-special:hover{color:#172f55}
 @media(max-width:850px){.id-hero-layout,.id-founder,.id-bridge-grid,.about-ribbon-layout{grid-template-columns:1fr}.id-hero{padding:58px 0}.symbol-art{max-width:640px}.id-three{grid-template-columns:1fr}.id-chain{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.id-grids,.id-chain,.id-faq{grid-template-columns:1fr}.id-hero h1{font-size:clamp(45px,12vw,67px)}.symbol-logo{font-size:clamp(49px,14vw,80px)}.symbol-art{padding:24px 17px}.symbol-layers{gap:5px}.symbol-layer{padding:12px 4px}.symbol-layer strong{font-size:10px}.symbol-layer span{font-size:9px}.id-hero .hero-buttons .btn{width:100%}.id-tile{min-height:0}.id-quote{padding:23px}.id-founder-plate{min-height:0}}
 @media(prefers-reduced-motion:reduce){.about-link-card{transition:none}}
+/* Small-screen identity page navigation */
+.identity-mobile-link{display:none;color:#f2cf8d;text-decoration:none;font-size:13px;font-weight:850}
+@media(max-width:780px){.identity-mobile-link{display:inline-flex}.site-header .navlinks{display:none}}
