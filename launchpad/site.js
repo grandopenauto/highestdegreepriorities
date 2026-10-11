@@ -21,8 +21,9 @@
     return '<article class="package-card" data-id="'+safe(p.id)+'">'+
       '<div class="package-foot"><span class="package-icon" aria-hidden="true">'+safe(p.icon)+'</span><span class="small-tag">'+safe(p.category)+'</span></div>'+
       '<h3>'+safe(p.name)+'</h3><p>'+safe(p.pitch)+'</p>'+
-      (featuredMode?'<div class="package-foot"><span class="tiny-note">'+safe(p.stage)+'</span><button class="text-action" type="button" data-open="'+safe(p.id)+'">Explore package →</button></div>':
-      '<div class="card-actions"><button class="text-action" type="button" data-open="'+safe(p.id)+'">View blueprint →</button><button class="add" type="button" data-pick="'+safe(p.id)+'" aria-pressed="'+selected+'">'+(selected?'✓ Selected':'+ Add to mix')+'</button></div>')+
+      (featuredMode?'<div class="package-foot"><span class="tiny-note">'+safe(p.stage)+'</span><button class="text-action" type="button" data-open="'+safe(p.id)+'">Quick details</button></div>':
+      '<div class="card-actions"><button class="text-action" type="button" data-open="'+safe(p.id)+'">Quick details</button><button class="add" type="button" data-pick="'+safe(p.id)+'" aria-pressed="'+selected+'">'+(selected?'✓ Selected':'+ Add to mix')+'</button></div>')+
+      '<a class="product-page-link" data-analytics="launchpad_product_click" href="/business/?package='+encodeURIComponent(p.id)+'">View full package &amp; configure →</a>'+
       '</article>';
   }
   function refresh(){
@@ -50,7 +51,7 @@
       '<h3>HDP building blocks</h3><ul>'+p.includes.map(t=>'<li>'+safe(t)+'</li>').join("")+'</ul>'+
       '<h3>Service and integration choices</h3><ul>'+p.options.map(t=>'<li>'+safe(t)+'</li>').join("")+'</ul>'+
       '<div class="dialog-actions"><button type="button" class="btn navy" data-pick="'+safe(p.id)+'">'+(picked.has(p.id)?"✓ Remove from mix":"+ Add to my business mix")+'</button>'+
-      '<a class="btn gold" data-analytics="launchpad_plan_interest" href="'+makeMailto([p])+'">Ask about this package ↗</a></div>'+
+      '<a class="btn gold" data-analytics="launchpad_product_click" href="/business/?package='+encodeURIComponent(p.id)+'">Full package &amp; configurator →</a></div>'+
       '<p class="legalnote">Blueprints are configurable starting points, not claims that every component is deployed, licensed, integrated or ready for immediate customer use. Scope and availability are confirmed during planning.</p>';
     track("launchpad_package_view",{package_id:p.id,category:p.category});
     if(typeof detail.showModal==="function")detail.showModal();else detail.setAttribute("open","");
