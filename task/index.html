@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c1323">
+<title>Configure a Task | HDP Tasks Marketplace</title>
+<meta name="description" content="Customize an individual HDP business task, see its linked systems, export a configuration draft, and choose a public tool or request scoped service.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.highestdegreepriorities.com/task/">
+<link rel="stylesheet" href="/launchpad/styles.css">
+<link rel="stylesheet" href="/business/product.css">
+<link rel="stylesheet" href="/task/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZD9GMMZ36"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-2ZD9GMMZ36")</script>
+<script src="/analytics-events.js" defer></script>
+<script src="/launchpad/catalog.js" defer></script>
+<script src="/business/specs.js" defer></script>
+<script src="/tasks/catalog.js" defer></script>
+<script src="/task/detail.js" defer></script>
+</head><body>
+<header class="site-header"><div class="container nav"><a class="logo" href="/"><span class="mark">H⁰</span><span>HIGHEST DEGREE<br>PRIORITIES</span></a><nav class="navlinks" aria-label="Main navigation"><a href="/">Launchpad</a><a href="/tasks/">Tasks Marketplace</a><a href="/#catalog">Business OS packages</a><a href="/explore/">Explore HDP</a></nav><a href="/tasks/" class="mobile-nav">← All tasks</a></div></header>
+<main>
+<section class="product-hero"><div class="container">
+<p class="breadcrumbs"><a href="/">HDP</a> › <a href="/tasks/">Tasks Marketplace</a> › <span id="crumbName">Individual task</span></p>
+<div class="product-layout task-product-grid">
+<div class="task-visual">
+  <div class="art-chip">HDP · SINGLE-TASK SERVICE</div>
+  <h2 id="visualTitle">One objective. One useful result.</h2>
+  <div class="task-visual-tile"><span>YOUR OBJECTIVE</span><strong>Describe the result you want.</strong></div>
+  <div class="task-visual-flow">↓</div>
+  <div class="task-visual-tile"><span>HDP CAPABILITIES</span><strong>Choose supporting agents and workflows.</strong></div>
+  <div class="task-visual-flow">↓</div>
+  <div class="task-visual-tile"><span>DELIVERY</span><strong>Use the tool or request scoped fulfillment.</strong></div>
+  <p class="art-caption">Illustrative setup flow · Not a live task run</p>
+</div>
+<div class="buy-pane">
+  <div class="eyebrow" id="category">HDP task</div>
+  <h1 id="title">Configure your task</h1>
+  <p id="summary"></p>
+  <div class="tag-row"><span class="readiness" id="access">Task</span><span class="readiness muted">A la carte</span><span class="readiness muted">Business OS compatible</span></div>
+  <div class="quote-box"><div><small>Pricing and delivery</small><strong id="priceLabel">Confirm availability</strong></div><p>Public tools can be opened directly. Other tasks require an agreed scope, cost and delivery plan. Nothing auto-activates from a JSON draft.</p></div>
+  <div class="primary-stack"><a class="btn gold" href="#configure">Configure this task →</a><a class="btn navy" href="#systems">See supporting HDP systems ↓</a><a class="btn light-button" href="#" id="directTool" hidden>Open public tool ↗</a></div>
+  <div class="safety-line">Start with one useful task. Add other capabilities only if you want them.</div>
+</div>
+</div></div></section>
+<section class="section" id="systems"><div class="container">
+<div class="eyebrow">What powers this task</div><h2 class="section-title">Individual result. Connected capabilities.</h2><p class="section-sub" id="resultText"></p>
+<div class="spec-grid"><article class="spec-card"><h3>Supporting HDP agents and systems</h3><ul id="components"></ul></article>
+<article class="spec-card"><h3>Go further with a Business OS</h3><p>The same capabilities can become part of a complete operating system. You don't have to start there.</p><div class="linked-bos" id="linkedBos"></div></article></div>
+</div></section>
+<section class="section config-section" id="configure"><div class="container">
+<div class="headerline"><div><div class="eyebrow">Task setup</div><h2 class="section-title">Define exactly what you need.</h2><p class="section-sub">Save a portable JSON draft or copy a structured prompt for AI-assisted scoping. No hidden subscriptions or automatic deployment.</p></div><div class="config-status">Draft · Not active</div></div>
+<div class="builder-layout">
+<div class="config-panel">
+  <div class="form-group"><label for="taskBusiness">Business or project name</label><input id="taskBusiness" maxlength="100" placeholder="Your brand or project"></div>
+  <div class="form-group"><label for="taskObjective">What should the task accomplish?</label><textarea id="taskObjective" rows="4" maxlength="1200" placeholder="Describe the outcome you want, rather than just the tool you want to use."></textarea></div>
+  <div class="form-grid"><div class="form-group"><label for="taskInputs">Inputs or information available</label><textarea id="taskInputs" rows="3" maxlength="750" placeholder="Public website, approved files, workflow examples, etc."></textarea></div>
+  <div class="form-group"><label for="taskSuccess">What counts as done?</label><textarea id="taskSuccess" rows="3" maxlength="750" placeholder="How will you judge the result?"></textarea></div></div>
+  <div class="form-group"><label for="taskConstraints">Existing tools, approvals or constraints</label><textarea id="taskConstraints" rows="3" maxlength="750" placeholder="Current software, preferred method, timeline, privacy requirements..."></textarea></div>
+  <fieldset class="mod-group"><legend>Supporting components</legend><p>Select the HDP capabilities to consider for this task. These are planning choices, not already deployed integrations.</p><div class="module-checks" id="taskModules"></div></fieldset>
+  <div class="action-grid"><button type="button" id="exportDraft" class="btn navy">Download JSON draft ↓</button><button id="copyPrompt" class="btn light-button" type="button">Copy AI setup prompt</button><label class="btn light-button upload-label" for="importDraft">Import task JSON ↑</label><input id="importDraft" type="file" accept=".json,application/json" hidden><button class="btn light-button" type="button" id="example">Load example</button></div>
+  <p class="action-notice" role="status" id="notice" aria-live="polite">Configuration draft only. Do not enter credentials or sensitive customer records.</p>
+</div>
+<aside class="summary-panel"><div class="sticky-summary">
+  <div class="eyebrow">Your individual task</div><h3 id="summaryTask"></h3>
+  <div class="summary-row"><span>Supporting modules</span><strong id="summaryCount"></strong></div>
+  <div class="summary-row"><span>Requested outcome</span><strong id="summaryOutcome">Not specified</strong></div>
+  <div class="summary-row"><span>Activation</span><strong class="inactive">Not active</strong></div>
+  <div class="price-total"><small>Task pricing</small><strong>Confirmed when scoped</strong><span>A public tool can be used directly; managed work requires approval of price and deliverables.</span></div>
+  <a href="#" id="usePublic" class="btn gold full" hidden>Open existing tool ↗</a><button id="requestScope" type="button" class="btn gold full">Request this task →</button>
+  <p class="summary-help">Requests open an email draft and do not constitute checkout. Paid service activation requires a server-verified order and provisioning approval.</p>
+</div></aside>
+</div></div></section>
+<section class="section task-crossover"><div class="container"><div class="eyebrow">Need more later?</div><h2 class="section-title">One task can grow into an entire business.</h2><p class="section-sub">Return to the marketplace to find another task, or use the Business Launchpad to combine them in a full operating system.</p><div class="hero-buttons"><a href="/tasks/" class="btn navy">More individual tasks ↗</a><a href="/#catalog" class="btn outline-dark">Business OS catalog ↗</a></div></div></section>
+</main><footer><div class="container footer-inner"><div><strong style="color:#fff">Highest Degree Priorities</strong><div>Build it. Launch it. Operate it. Expand it.</div></div><nav class="footerlinks"><a href="/">Launchpad</a><a href="/tasks/">Tasks Marketplace</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav></div></footer>
+</body></html>
