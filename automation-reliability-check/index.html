@@ -54,6 +54,15 @@
     <p>Score the weak points that make workflows break, duplicate data, silently fail, or require constant human babysitting. No login or contact information required.</p>
   </div></section>
   <main><div class="wrap">
+    <section class="card">
+      <div class="eyebrow">Already dealing with a failure?</div>
+      <h2>Don't score the whole stack first if one workflow is actively breaking.</h2>
+      <p>If the automation used to work and now fails, duplicates actions, stalls, or silently misses the business outcome, start with Failure Triage to identify the likely failure class. If you want the deeper reasoning first, read the long-running workflow failure guide.</p>
+      <div class="actions">
+        <a id="triageRoute" class="btn primary" href="https://www.highestdegreepriorities.com/automation-failure-triage/?utm_source=automation_reliability_check&utm_medium=owned_internal&utm_campaign=triage_distribution_retest&utm_content=active_failure_route">Triage the active failure</a>
+        <a id="failureGuideRoute" class="btn secondary" href="https://www.highestdegreepriorities.com/insights/long-running-workflow-failure-modes/?utm_source=automation_reliability_check&utm_medium=owned_internal&utm_campaign=triage_distribution_retest&utm_content=failure_guide_route">Read the failure-mode guide</a>
+      </div>
+    </section>
     <form id="check" class="card">
       <h2>Automation Reliability Check</h2>
       <p>Choose the answer that best describes the automations you rely on today.</p>
@@ -99,6 +108,8 @@
       document.getElementById('result').style.display='block';document.getElementById('result').scrollIntoView({behavior:'smooth'});
       if(window.gtag)gtag('event','automation_reliability_check_completed',{reliability_score:score,reliability_band:band});
     });
+    document.getElementById('triageRoute').addEventListener('click',()=>{if(window.gtag)gtag('event','reliability_to_triage_click',{source:'automation_reliability_check'})});
+    document.getElementById('failureGuideRoute').addEventListener('click',()=>{if(window.gtag)gtag('event','reliability_to_failure_guide_click',{source:'automation_reliability_check'})});
     document.getElementById('auditCta').addEventListener('click',()=>{if(window.gtag)gtag('event','workflow_audit_cta_click',{source:'automation_reliability_check'})});
     document.getElementById('sampleCta').addEventListener('click',()=>{if(window.gtag)gtag('event','sample_audit_cta_click',{source:'automation_reliability_check'})});
     document.getElementById('again').addEventListener('click',()=>{document.getElementById('check').reset();document.getElementById('result').style.display='none';document.getElementById('check').scrollIntoView({behavior:'smooth'})});
